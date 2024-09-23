@@ -49,8 +49,12 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
               indicatorPadding: const EdgeInsets.symmetric(vertical: 10),
               dividerColor: Colors.transparent,
               tabs: const [
-                Tab(text: "Juz"),
-                Tab(text: "Surah"),
+                SizedBox(
+                    height: 30,
+                        width: double.infinity,
+                    child: Tab(text: "Juz")),
+                SizedBox( height: 30,
+                    width: double.infinity,child: Tab(text: "Surah")),
               ],
             ),
           ),
