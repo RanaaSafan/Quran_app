@@ -14,8 +14,8 @@ class _QuranScreenState extends State<QuranScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TabBarJuzsurah(),
-        ContainerSurah(),
+
+
       ],
     );
   }

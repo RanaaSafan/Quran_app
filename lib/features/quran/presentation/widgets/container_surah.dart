@@ -9,9 +9,9 @@ class ContainerSurah extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         width: double.infinity,
-        height: 70,
+        height: 55,
         decoration: BoxDecoration(
-          color: Colors.cyan,
+          color: Color(0xFF0288D5),
           borderRadius: BorderRadius.circular(17),
         ),
         child: Center(
@@ -23,11 +23,15 @@ class ContainerSurah extends StatelessWidget {
                 onPressed: () {},
                 icon: const Icon(Icons.send_sharp, size: 20, color: Colors.white),
               ),
-              const Text(
-                "Surah",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+              const SizedBox(width: 10),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: const Text(
+                  "Surah",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
-              const SizedBox(width: 10), // Adjust this as per your design
+              // Adjust this as per your design
             ],
           ),
         ),
