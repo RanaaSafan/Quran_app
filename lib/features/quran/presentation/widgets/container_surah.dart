@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../../data/models/data.dart';
 
 class ContainerSurah extends StatelessWidget {
-  const ContainerSurah({super.key});
+  const ContainerSurah({super.key, required this.name});
+  final String name; // Changed from List<Data> to List<Data>
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +28,11 @@ class ContainerSurah extends StatelessWidget {
               const SizedBox(width: 10),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: const Text(
-                  "Surah",
+                child: Text(
+                  name, // Safely access the first Data object's name
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
-              // Adjust this as per your design
             ],
           ),
         ),

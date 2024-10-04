@@ -1,30 +1,28 @@
-import 'data.dart';
+import 'package:quran_app/features/quran/data/models/data.dart';
 
 class Surah {
+  Surah({
+    required this.code,
+    required this.status,
+    required this.data,
+  });
+
   final int? code;
   final String? status;
   final List<Data> data;
 
-  Surah({required this.code, required this.status, this.data = const []});
-
-  // Factory constructor for creating a Surah instance from JSON
-  factory Surah.fromJson(Map<String, dynamic> json) {
+  factory Surah.fromJson(Map<String, dynamic> json){
     return Surah(
-      code: json['code'],
-      status: json['status'],
-      data: (json['data'] != null)
-          ? (json['data'] as List).map((v) => Data.fromJson(v)).toList()
-          : [],
+      code: json["code"],
+      status: json["status"],
+      data: json["data"] == null ? [] : List<Data>.from(json["data"]!.map((x) => Data.fromJson(x))),
     );
   }
 
-  // Method to convert a Surah instance to JSON
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> jsonData = {
-      'code': code,
-      'status': status,
-      'data': data.map((v) => v.toJson()).toList(),
-    };
-    return jsonData;
-  }
+  Map<String, dynamic> toJson() => {
+    "code": code,
+    "status": status,
+    "data": data.map((x) => x?.toJson()).toList(),
+  };
+
 }
