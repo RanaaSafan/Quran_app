@@ -37,7 +37,7 @@ class _ListViewSurahState extends State<ListViewSurah> {
             separatorBuilder: (BuildContext context, int index) => SizedBox(height: 6),
             itemBuilder: (BuildContext context, int index) {
               final surah = state.surahList[index];
-              return ContainerSurah(name: surah.data[index]!.name!); // Pass the list of Data objects
+              return ContainerSurah(name: surah.name!); // Pass the list of Data objects
             },
           );
         } else if (state is SurahFailer) {

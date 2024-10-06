@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
 
+main(){
+  ApiService api=ApiService(dio: Dio());
+  api.getHadith();
+}
 class ApiService {
   final Dio _dio;
   final String baseUrl = "https://api.alquran.cloud/v1";
@@ -23,6 +27,22 @@ class ApiService {
     } on DioException catch (e) {
       String errorMessage = _extractErrorMessage(e);
       print('GET request to $endPoints failed: ${e.response?.statusCode} - $errorMessage');
+      throw Exception(errorMessage);
+    }
+  }
+
+  Future<Map<String, dynamic>> getHadith() async {
+    try {
+      String apiKey = '\$2y\$10\$zXGetdrbFxiXuGB5JXNR2efIkrYbjcZRHJA4wz4KLljp26VYQ0O'; // Escape $ using \
+      Response response = await _dio.get(
+        'https://hadithapi.com/public/api/hadiths?apiKey=$apiKey', // Use the apiKey variable
+      );
+      print("$response.data");
+      return response.data;
+
+    } on DioException catch (e) {
+      String errorMessage = _extractErrorMessage(e);
+     // print('GET request to $endPoints failed: ${e.response?.statusCode} - $errorMessage');
       throw Exception(errorMessage);
     }
   }

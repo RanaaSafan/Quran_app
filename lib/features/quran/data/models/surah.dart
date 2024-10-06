@@ -1,28 +1,28 @@
-import 'package:quran_app/features/quran/data/models/data.dart';
+import 'data.dart';
 
 class Surah {
+  final int? code;
+  final String? status;
+  final List<Data> data;
+
   Surah({
     required this.code,
     required this.status,
     required this.data,
   });
 
-  final int? code;
-  final String? status;
-  final List<Data> data;
-
-  factory Surah.fromJson(Map<String, dynamic> json){
+  factory Surah.fromJson(Map<String, dynamic> json) {
     return Surah(
       code: json["code"],
       status: json["status"],
-      data: json["data"] == null ? [] : List<Data>.from(json["data"]!.map((x) => Data.fromJson(x))),
+      data: json["data"] == null
+          ? []
+          : List<Data>.from((json["data"] as List).map((item) => Data.fromJson(item))),
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    "code": code,
-    "status": status,
-    "data": data.map((x) => x?.toJson()).toList(),
-  };
-
+  @override
+  String toString() {
+    return 'Surah(code: $code, status: $status, data: $data)';
+  }
 }

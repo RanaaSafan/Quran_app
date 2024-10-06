@@ -1,4 +1,11 @@
 class Data {
+  final int number;
+  final String name;
+  final String englishName;
+  final String englishNameTranslation;
+  final int numberOfAyahs;
+  final String revelationType;
+
   Data({
     required this.number,
     required this.name,
@@ -8,14 +15,7 @@ class Data {
     required this.revelationType,
   });
 
-  final int? number;
-  final String? name;
-  final String? englishName;
-  final String? englishNameTranslation;
-  final int? numberOfAyahs;
-  final String? revelationType;
-
-  factory Data.fromJson(Map<String, dynamic> json){
+  factory Data.fromJson(Map<String, dynamic> json) {
     return Data(
       number: json["number"],
       name: json["name"],
@@ -26,13 +26,8 @@ class Data {
     );
   }
 
-  Map<String, dynamic> toJson() => {
-    "number": number,
-    "name": name,
-    "englishName": englishName,
-    "englishNameTranslation": englishNameTranslation,
-    "numberOfAyahs": numberOfAyahs,
-    "revelationType": revelationType,
-  };
-
+  @override
+  String toString() {
+    return 'Data(number: $number, name: $name, englishName: $englishName, numberOfAyahs: $numberOfAyahs)';
+  }
 }

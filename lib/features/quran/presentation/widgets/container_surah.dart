@@ -13,7 +13,7 @@ class ContainerSurah extends StatelessWidget {
         width: double.infinity,
         height: 55,
         decoration: BoxDecoration(
-          color: Color(0xFF0288D5),
+          color: Color(0xFF0A2060),
           borderRadius: BorderRadius.circular(17),
         ),
         child: Center(
@@ -23,7 +23,7 @@ class ContainerSurah extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.send_sharp, size: 20, color: Colors.white),
+                icon: const Icon(Icons.add_circle, size: 20, color: Color(0xFF65D6FC)),
               ),
               const SizedBox(width: 10),
               Padding(

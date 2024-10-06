@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah.dart';
 import '../../../../core/errors/failures.dart';
 import '../../../../core/functions/api_service.dart';
+import '../models/data.dart';
 import '../models/surah.dart';
 
 // void main() async {
@@ -21,17 +22,19 @@ class RepoSurahImpl extends RepoSurah {
   RepoSurahImpl({required this.apiservice});
 
   @override
-  Future<Either<Failure, List<Surah>>> FetchSurah() async {
+  Future<Either<Failure, List<Data>>> FetchSurah() async {
     try {
       final endpoint = '/surah'; // Correct endpoint for fetching surahs
       var data = await apiservice.get(endPoints: endpoint);
-    // print(data); // Debugging: Print API response to ensure correct structure
-      List<Surah> surahData = [];
+     //  print(data);  Debugging: Print API response to ensure correct structure
+      List<Data> surahData = [];
 
       for (var i in data["data"]) { // Ensure the key "Data" exists in the response
-        surahData.add(Surah.fromJson(i));
+        surahData.add(Data.fromJson(i));
       }
-      print("Surah Data: $surahData");
+
+
+    // print("Surah Data: $surahData");
       return right(surahData);
 
     } catch (e) {

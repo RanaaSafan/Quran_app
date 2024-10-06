@@ -14,12 +14,12 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
   late TabController _tabController;
 
   // تعريف الألوان في المتغيرات لتسهيل الصيانة
-  final Color backgroundColor = const Color(0xFFF0F0F0); // خلفية رمادي فاتح جداً
-  final Color tabBarColor = const Color(0xFFB3E5FC); // أزرق فاتح وهادئ
+  final Color backgroundColor = const Color(0xFF0F227C); // خلفية رمادي فاتح جداً
+  final Color tabBarColor = const Color(0xFF5DB8EB); // أزرق فاتح وهادئ
   final Color tabBorderColor = const Color(0xFF01579B); // أزرق داكن
   final Color tabIndicatorColor = const Color(0xFFE1F5FE); // أزرق فاتح جداً
   final Color selectedLabelColor = const Color(0xFF01579B); // لون النص عند التحديد
-  final Color unselectedLabelColor = const Color(0xFF0288D1); // لون النص غير المحدد
+  final Color unselectedLabelColor = const Color(0xFF335FA0); // لون النص غير المحدد
 
   @override
   void initState() {
@@ -59,8 +59,9 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
                   controller: _tabController,
                   labelColor: selectedLabelColor, // لون النص عند التحديد
                   unselectedLabelColor: unselectedLabelColor, // لون النص غير المحدد
+                  dividerColor: Colors.transparent,
                   indicator: BoxDecoration(
-                    color: tabIndicatorColor, // لون المؤشر
+                   color: tabIndicatorColor, // لون المؤشر
                     borderRadius: BorderRadius.circular(25),
                   ),
                   labelStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -77,6 +78,7 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
           Expanded(
             child: TabBarView(
               controller: _tabController,
+              physics: BouncingScrollPhysics(),
               children: const [
                 ListViewJuz(),
                 ListViewSurah(),

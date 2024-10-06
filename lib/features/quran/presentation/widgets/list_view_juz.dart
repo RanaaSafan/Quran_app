@@ -16,12 +16,17 @@ class ListViewJuz extends StatefulWidget {
 
 final reposurah = RepoSurahImpl(apiservice: ApiService(dio: Dio()));
 final surahCubit = SurahCubit(reposurah);
+List<String> juzList=[];
+
 
 class _ListViewJuzState extends State<ListViewJuz> {
   @override
   void initState() {
     super.initState();
     context.read<SurahCubit>().getSurah(); // Fetch surahs when the widget is created
+    for(int i=1;i<=30;i++)  {
+      juzList.add('Juz $i');
+    }
   }
 
   @override
@@ -33,11 +38,11 @@ class _ListViewJuzState extends State<ListViewJuz> {
         } else if (state is SurahSuccess) {
           return ListView.separated(
             scrollDirection: Axis.vertical,
-            itemCount: state.surahList.length,
+            itemCount: juzList.length,
             separatorBuilder: (BuildContext context, int index) => SizedBox(height: 6),
             itemBuilder: (BuildContext context, int index) {
-              final surah = state.surahList[index];
-              return ContainerSurah(name: surah.data[index]!.name!); // Pass the list of Data objects
+              //final surah = state.surahList[index];
+              return ContainerSurah(name: juzList[index]); // Pass the list of Data objects
             },
           );
         } else if (state is SurahFailer) {

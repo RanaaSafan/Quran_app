@@ -11,6 +11,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Color(0xFF0F227C),
       flexibleSpace: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -18,7 +19,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
             bottomLeft: Radius.circular(20),
           ),
           gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.lightBlueAccent], // تدرج لوني
+            colors: [Color(0xff3B53B1), Color(0xff364AAA)], // تدرج لوني
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -32,7 +33,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.only(left: 10.0), // إضافة حشوة على اليسار
           child: const Text(
             'Al Quran',
-            style: TextStyle(color: Colors.black, fontSize: 30), // تنسيق النص
+            style: TextStyle(color: Colors.white, fontSize: 30), // تنسيق النص
           ),
         ),
       ),
