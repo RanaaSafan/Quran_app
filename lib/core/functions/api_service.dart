@@ -37,7 +37,7 @@ class ApiService {
       Response response = await _dio.get(
         'https://hadithapi.com/public/api/hadiths?apiKey=$apiKey', // Use the apiKey variable
       );
-      print("$response.data");
+    //  print("$response");
       return response.data;
 
     } on DioException catch (e) {

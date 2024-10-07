@@ -8,9 +8,9 @@ class Data {
   final String hadithEnglish;
   final String hadithUrdu;
   final String urduNarrator;
-  final String hadithArabic;
-  final String headingArabic;
-  final String headingUrdu;
+  final String? hadithArabic;
+  final String? headingArabic;
+  final String? headingUrdu;
   final String headingEnglish;
   final String chapterId;
   final String bookSlug;
@@ -46,9 +46,9 @@ class Data {
       hadithEnglish: json['hadithEnglish'],
       hadithUrdu: json['hadithUrdu'],
       urduNarrator: json['urduNarrator'],
-      hadithArabic: json['hadithArabic'],
-      headingArabic: json['headingArabic'],
-      headingUrdu: json['headingUrdu'],
+      hadithArabic: json['hadithArabic']?.isNotEmpty == true ? json['hadithArabic'] : " ", // تحقق من أن القيمة ليست فارغة
+      headingArabic: json['headingArabic']?.isNotEmpty == true ? json['headingArabic'] : null, // يمكن أن تكون null
+      headingUrdu: json['headingUrdu']?.isNotEmpty == true ? json['headingUrdu'] : null, // يمكن أن تكون null
       headingEnglish: json['headingEnglish'],
       chapterId: json['chapterId'],
       bookSlug: json['bookSlug'],
@@ -59,24 +59,5 @@ class Data {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['hadithNumber'] = hadithNumber;
-    data['englishNarrator'] = englishNarrator;
-    data['hadithEnglish'] = hadithEnglish;
-    data['hadithUrdu'] = hadithUrdu;
-    data['urduNarrator'] = urduNarrator;
-    data['hadithArabic'] = hadithArabic;
-    data['headingArabic'] = headingArabic;
-    data['headingUrdu'] = headingUrdu;
-    data['headingEnglish'] = headingEnglish;
-    data['chapterId'] = chapterId;
-    data['bookSlug'] = bookSlug;
-    data['volume'] = volume;
-    data['status'] = status;
-    data['book'] = book.toJson();
-    data['chapter'] = chapter.toJson();
-    return data;
-  }
+
 }

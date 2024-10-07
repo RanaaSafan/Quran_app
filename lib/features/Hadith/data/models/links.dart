@@ -1,27 +1,21 @@
 class Links {
-  final String url;
-  final String label;
+  final String? url;    // يمكن أن تكون null
+  final String? label;  // يمكن أن تكون null
   final bool active;
 
   Links({
-    required this.url,
-    required this.label,
+    this.url,            // هذا الحقل ليس مطلوبًا
+    this.label,          // هذا الحقل ليس مطلوبًا
     required this.active,
   });
 
   factory Links.fromJson(Map<String, dynamic> json) {
     return Links(
-      url: json['url'],
-      label: json['label'],
+      url: json['url']?.isNotEmpty == true ? json['url'] : " ",  // يمكن أن تكون null
+      label: json['label']?.isNotEmpty == true ? json['label'] : " ", // يمكن أن تكون null
       active: json['active'],
     );
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['url'] = url;
-    data['label'] = label;
-    data['active'] = active;
-    return data;
-  }
+
 }
