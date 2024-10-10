@@ -2,9 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:quran_app/core/errors/failures.dart';
 import 'package:quran_app/features/Hadith/data/Repo/repo_hadith.dart';
+import 'package:quran_app/features/Hadith/data/models/name.dart';
 import '../../../../core/functions/api_service.dart';
 import '../../../quran/data/models/data.dart';
 import '../models/Hadiths.dart';
+import '../models/book.dart';
+import '../models/hadith.dart';
 
 void main() async {
   final apiService = ApiService(dio: Dio());
@@ -14,7 +17,7 @@ void main() async {
 
   result.fold(
         (failure) => print('Error: ${failure.toString()}'),
-        (hadithData) => print('Fetched Hadith: $hadithData'),
+        (BooksData) => print('Fetched Hadith: $BooksData'),
   );
 }
 
@@ -23,24 +26,25 @@ class RepoHadithImpl extends RepoHadith {
 
   RepoHadithImpl({required this.apiservice});
 
-
   @override
-  Future<Either<Failure, List<Data>>> FetchHadith() async {
+  Future<Either<Failure, List<Book>>> FetchHadith() async {
     try {
-      final data = await apiservice.getHadith();
+      final response = await apiservice.getHadith();
 
-      // تحقق من وجود المفتاح "hadiths"
-      if (data == null || !data.containsKey('hadiths')) {
-        return left(ServerFailure("Received null or invalid data from API"));
+      // تحقق من أن البيانات تأتي بشكل صحيح
+      //final List<dynamic> dataList = response['hadiths']['data'];
+   //   print(response["data"]);
+
+     // List<Data> hadiths = dataList.map((hadithData) => Data.fromJson(hadithData)).toList();
+      //print(hadiths);
+     // print("Fetched Hadiths: $hadiths");
+      List<Book> BooksData = [];
+
+      for (var i in response["data"]) { // Ensure the key "Data" exists in the response
+        BooksData.add(Book.fromJson(i));
       }
 
-      List<Data> hadiths = [];
-      for (var hadithData in data['hadiths']['data']) {
-        hadiths.add(Data.fromJson(hadithData));
-      }
-
-      print("Fetched Hadiths: $hadiths");
-      return right(hadiths);
+      return right(BooksData);
     } catch (e) {
       print("Error fetching data: ${e.toString()}");
       return left(ServerFailure(e.toString()));

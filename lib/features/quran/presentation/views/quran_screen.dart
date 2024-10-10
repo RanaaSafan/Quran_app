@@ -12,11 +12,9 @@ class QuranScreen extends StatefulWidget {
 class _QuranScreenState extends State<QuranScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-
-
-      ],
+    return Scaffold(
+      body: const TabBarJuzsurah(), // Ensure this widget is properly implemented
     );
   }
 }
+

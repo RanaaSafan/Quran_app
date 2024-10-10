@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Extend PreferredSizeWidget
-class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const ContainerAppbar({super.key});
+class ContainerAppbarHadith extends StatelessWidget implements PreferredSizeWidget {
+  const ContainerAppbarHadith({super.key});
 
   // Specify the preferred size for the AppBar
   @override
@@ -31,7 +31,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
         title: const Padding(
           padding: EdgeInsets.only(left: 5.0), // إضافة حشوة على اليسار للنص
           child: Text(
-            'Al Quran',
+            'Al Hadith',
             style: TextStyle(
               color: Colors.white,
               fontSize: 25,

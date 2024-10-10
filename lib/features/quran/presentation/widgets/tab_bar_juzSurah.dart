@@ -13,13 +13,12 @@ class TabBarJuzsurah extends StatefulWidget {
 class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // تعريف الألوان في المتغيرات لتسهيل الصيانة
-  final Color backgroundColor = const Color(0xFF0F227C); // خلفية رمادي فاتح جداً
-  final Color tabBarColor = const Color(0xFF5DB8EB); // أزرق فاتح وهادئ
-  final Color tabBorderColor = const Color(0xFF01579B); // أزرق داكن
-  final Color tabIndicatorColor = const Color(0xFFE1F5FE); // أزرق فاتح جداً
-  final Color selectedLabelColor = const Color(0xFF01579B); // لون النص عند التحديد
-  final Color unselectedLabelColor = const Color(0xFF335FA0); // لون النص غير المحدد
+  final Color backgroundColor = const Color(0xFF0F227C);
+  final Color tabBarColor = const Color(0xFF5DB8EB);
+  final Color tabBorderColor = const Color(0xFF01579B);
+  final Color tabIndicatorColor = const Color(0xFFE1F5FE);
+  final Color selectedLabelColor = const Color(0xFF01579B);
+  final Color unselectedLabelColor = const Color(0xFF335FA0);
 
   @override
   void initState() {
@@ -37,52 +36,56 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
-      appBar:  ContainerAppbar(),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Material(
-              color: Colors.transparent, // تعيين لون الخلفية كـ شفاف
-              child: Container(
-                height: 50,
-                width: 400,
-                decoration: BoxDecoration(
-                  color: tabBarColor, // تعيين لون الخلفية للتبويبات
-                  borderRadius: BorderRadius.circular(25),
-                  border: Border.all(
-                    color: tabBorderColor, // لون الحواف
-                    width: 1,
-                  ),
-                ),
-                child: TabBar(
-                  controller: _tabController,
-                  labelColor: selectedLabelColor, // لون النص عند التحديد
-                  unselectedLabelColor: unselectedLabelColor, // لون النص غير المحدد
-                  dividerColor: Colors.transparent,
-                  indicator: BoxDecoration(
-                   color: tabIndicatorColor, // لون المؤشر
+      body: CustomScrollView(
+        slivers: [
+          const ContainerAppbar(),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Material(
+                color: Colors.transparent,
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: tabBarColor,
                     borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: tabBorderColor,
+                      width: 1,
+                    ),
                   ),
-                  labelStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  indicatorPadding: EdgeInsets.zero,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  tabs: const [
-                    Tab(text: "Juz"),
-                    Tab(text: "Surah"),
-                  ],
+                  child: TabBar(
+                    controller: _tabController,
+                    labelColor: selectedLabelColor,
+                    unselectedLabelColor: unselectedLabelColor,
+                    dividerColor: Colors.transparent,
+                    indicator: BoxDecoration(
+                      color: tabIndicatorColor,
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    labelStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    indicatorPadding: EdgeInsets.zero,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    tabs: const [
+                      Tab(text: "Juz"),
+                      Tab(text: "Surah"),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              physics: BouncingScrollPhysics(),
-              children: const [
-                ListViewJuz(),
-                ListViewSurah(),
-              ],
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height - 150, // Adjust this height according to your layout
+              child: TabBarView(
+                controller: _tabController,
+                physics: const BouncingScrollPhysics(),
+                children: const [
+                  ListViewJuz(),
+                  ListViewSurah(),
+                ],
+              ),
             ),
           ),
         ],

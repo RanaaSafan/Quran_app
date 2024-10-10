@@ -1,7 +1,7 @@
 class Links {
   final String? url;    // يمكن أن تكون null
   final String? label;  // يمكن أن تكون null
-  final bool active;
+  final bool? active;
 
   Links({
     this.url,            // هذا الحقل ليس مطلوبًا
@@ -13,7 +13,7 @@ class Links {
     return Links(
       url: json['url']?.isNotEmpty == true ? json['url'] : " ",  // يمكن أن تكون null
       label: json['label']?.isNotEmpty == true ? json['label'] : " ", // يمكن أن تكون null
-      active: json['active'],
+      active: json['active']?? true,
     );
   }
 

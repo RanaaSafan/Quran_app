@@ -33,9 +33,10 @@ class ApiService {
 
   Future<Map<String, dynamic>> getHadith() async {
     try {
-      String apiKey = '\$2y\$10\$zXGetdrbFxiXuGB5JXNR2efIkrYbjcZRHJA4wz4KLljp26VYQ0O'; // Escape $ using \
+      // String apiKey = '\$2y\$10\$zXGetdrbFxiXuGB5JXNR2efIkrYbjcZRHJA4wz4KLljp26VYQ0O'; // Escape $ using \
       Response response = await _dio.get(
-        'https://hadithapi.com/public/api/hadiths?apiKey=$apiKey', // Use the apiKey variable
+        'https://api.hadith.gading.dev/books'
+     //   'https://hadithapi.com/public/api/hadiths?apiKey=$apiKey', // Use the apiKey variable
       );
     //  print("$response");
       return response.data;
