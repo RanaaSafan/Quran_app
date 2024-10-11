@@ -3,8 +3,7 @@ import 'package:quran_app/features/Hadith/data/models/name.dart';
 
 import '../../../../core/errors/failures.dart';
 
-import '../../../quran/data/models/data.dart';
-import '../models/Hadiths.dart';
+
 import '../models/book.dart';
 
 abstract class RepoHadith{

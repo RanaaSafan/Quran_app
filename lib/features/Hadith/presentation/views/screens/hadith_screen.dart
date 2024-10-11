@@ -16,6 +16,7 @@ class _HadithScreenState extends State<HadithScreen> {
     return Scaffold(
       backgroundColor: Color(0xFF0F227C),
       body: CustomScrollView(
+
           slivers: [
           const ContainerAppbarHadith(),
             const SliverGridContainer(),

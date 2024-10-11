@@ -6,6 +6,8 @@ import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart'; // Import your Cubit
 
 import 'core/functions/api_service.dart';
+import 'features/Hadith/data/Repo/repo_hadith_impl.dart';
+import 'features/Hadith/presentation/controller/hadith_cubit.dart';
 import 'features/Hadith/presentation/views/screens/hadith_screen.dart';
 import 'features/Hadith/presentation/views/widgets/sliver_grid_conatiner.dart';
 import 'features/quran/presentation/views/quran_screen.dart';
@@ -23,9 +25,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BlocProvider(
-        create: (context) => SurahCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))), // Provide the SurahCubit here
-        child:QuranScreen(),
+      home: MultiBlocProvider(
+        providers: [
+         BlocProvider(create:(context) => SurahCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))), ) ,
+          BlocProvider(create:(context) => HadithCubit(RepoHadithImpl(apiservice: ApiService(dio: Dio()))), ) ,
+        ],
+
+        // Provide the SurahCubit here
+        child:HadithScreen(),
         //TabBarJuzsurah(), // Your TabBarJuzsurah widget
       ),
     );

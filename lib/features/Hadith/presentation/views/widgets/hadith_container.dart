@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HadithContainer extends StatefulWidget {
-  const HadithContainer({super.key});
+  const HadithContainer({super.key, required this.name});
+  final String name;
 
   @override
   State<HadithContainer> createState() => _HadithContainerState();
@@ -13,8 +14,8 @@ class _HadithContainerState extends State<HadithContainer> {
     return Stack(
       children: [
         Container(
-          height: 900,
-          width: 230,
+          height: 500,
+          width: 400,
           decoration: BoxDecoration(
             color: const Color(0xFF0A2060),
             borderRadius: BorderRadius.circular(15),
@@ -41,9 +42,11 @@ class _HadithContainerState extends State<HadithContainer> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Sunan",
-                style: TextStyle(color: Colors.white, fontSize: 25),
+              Expanded(
+                child: Text(
+                  widget.name,
+                  style: TextStyle(color: Colors.white, fontSize: 25,overflow: TextOverflow.ellipsis,),
+                ),
               ),
               IconButton(
                 onPressed: () {},
