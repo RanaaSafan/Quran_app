@@ -16,6 +16,12 @@ class NewPassword extends StatefulWidget {
 }
 
 class _NewPasswordState extends State<NewPassword> {
+  void onpresed(){
+
+      GoRouter.of(context)
+          .pushNamed(Routers.passwordchanges.name);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,9 +72,9 @@ class _NewPasswordState extends State<NewPassword> {
                     children: [
                       FadeInAnimation(
                         delay: 1.9,
-                        child: const CustomTextFormField(
+                        child:  CustomTextFormField(
                           hinttext: 'New password',
-                          obsecuretext: false,
+                          obsecuretext: false, controller: TextEditingController(),
                         ),
                       ),
                       const SizedBox(
@@ -76,9 +82,9 @@ class _NewPasswordState extends State<NewPassword> {
                       ),
                       FadeInAnimation(
                         delay: 2.1,
-                        child: const CustomTextFormField(
+                        child:  CustomTextFormField(
                           hinttext: 'Confirm password',
-                          obsecuretext: false,
+                          obsecuretext: false, controller: TextEditingController(),
                         ),
                       ),
                       SizedBox(
@@ -88,10 +94,7 @@ class _NewPasswordState extends State<NewPassword> {
                         delay: 2.4,
                         child: CustomElevatedButton(
                           message: "Reset Password ",
-                          function: () {
-                            GoRouter.of(context)
-                                .pushNamed(Routers.passwordchanges.name);
-                          },
+                         onPressed: onpresed,
                           color: Colors.black,
                         ),
                       ),

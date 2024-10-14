@@ -13,11 +13,13 @@ class CustomTextFormField extends StatefulWidget {
   final String hinttext;
   final bool obsecuretext;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
   const CustomTextFormField({
     Key? key,
     required this.hinttext,
     required this.obsecuretext,
-    this.controller,
+    required this.controller,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -30,6 +32,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: widget.obsecuretext,
+      validator: widget.validator,
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(18),
           // border: InputBorder.none,
@@ -42,14 +45,64 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   }
 }
 
+class CustomPasswordTextFormField extends StatefulWidget {
+  final String hinttext;
+    bool obsecuretext;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+   CustomPasswordTextFormField({
+    Key? key,
+    required this.hinttext,
+    required this.obsecuretext,
+    required this.controller,
+     this.validator,
+  }) : super(key: key);
+
+  @override
+  State<CustomPasswordTextFormField> createState() => _CustomPasswordTextFormFieldState();
+}
+
+class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormField> {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      obscureText: widget.obsecuretext,
+
+      validator: widget.validator,
+      decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(18),
+          hintText: widget.hinttext,
+          hintStyle: Common().hinttext,
+          border: OutlineInputBorder(
+              borderSide:
+              const BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.circular(12)
+          ),
+          suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  widget.obsecuretext=!widget.obsecuretext;
+                });
+              },
+              icon:widget.obsecuretext? const Icon(
+                  Icons.visibility_off_rounded):const Icon(
+                  Icons.visibility)
+          )),
+      );
+  }
+}
+
+
 class CustomElevatedButton extends StatefulWidget {
   final String message;
-  final FutureOr<void> Function() function;
+  final VoidCallback onPressed;
   final Color? color;
+
   const CustomElevatedButton({
     Key? key,
     required this.message,
-    required this.function,
+    required this.onPressed,
     this.color = Colors.white,
   }) : super(key: key);
 
@@ -59,40 +112,45 @@ class CustomElevatedButton extends StatefulWidget {
 
 class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () async {
         setState(() {
-          loading = true;
+          loading = true; // تعيين حالة التحميل إلى true
         });
-        if (widget.function != null) {
-          await widget.function!();
-        }
+
+        // استدعاء الدالة المقدمة
+        await widget.onPressed;
 
         setState(() {
-          loading = false;
+          loading = false; // تعيين حالة التحميل إلى false بعد الانتهاء
         });
       },
       style: ButtonStyle(
-          side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
-          shape: MaterialStatePropertyAll(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-          fixedSize: const MaterialStatePropertyAll(Size.fromWidth(370)),
-          padding: const MaterialStatePropertyAll(
-            EdgeInsets.symmetric(vertical: 20),
-          ),
-          backgroundColor: MaterialStatePropertyAll(widget.color)),
+        side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        ),
+        fixedSize: const MaterialStatePropertyAll(Size.fromWidth(370)),
+        padding: const MaterialStatePropertyAll(
+          EdgeInsets.symmetric(vertical: 20),
+        ),
+        backgroundColor: MaterialStatePropertyAll(widget.color),
+      ),
       child: loading
-          ? const CupertinoActivityIndicator()
+          ? const CircularProgressIndicator() // عرض مؤشر التحميل إذا كانت الحالة في التحميل
           : FittedBox(
-          child: Text(
-            widget.message,
-            style: Common().semiboldwhite,
-          )),
+        child: Text(
+          widget.message,
+          style: Common().semiboldwhite,
+        ),
+      ),
     );
   }
 }
+
 
 class DynamicFilledButton extends StatefulWidget {
   const DynamicFilledButton(

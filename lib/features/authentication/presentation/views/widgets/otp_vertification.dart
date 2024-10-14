@@ -17,6 +17,12 @@ class OtpVertification extends StatefulWidget {
 }
 
 class _OtpVertificationState extends State<OtpVertification> {
+  void onpressed(){
+
+      GoRouter.of(context)
+          .pushNamed(Routers.newpassword.name);
+
+  }
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
@@ -109,13 +115,13 @@ class _OtpVertificationState extends State<OtpVertification> {
                       ),
                       FadeInAnimation(
                         delay: 2.1,
-                        child: CustomElevatedButton(
-                          message: "Verify",
-                          function: () {
-                            GoRouter.of(context)
-                                .pushNamed(Routers.newpassword.name);
-                          },
-                          color: Colors.black,
+                        child: Padding(
+                          padding: const EdgeInsets.all(35.0),
+                          child: CustomElevatedButton(
+                            message: "Verify",
+                            onPressed:onpressed ,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ],

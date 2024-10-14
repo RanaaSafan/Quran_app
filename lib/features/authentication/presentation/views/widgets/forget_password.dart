@@ -17,6 +17,12 @@ class ForgetPassword extends StatefulWidget {
 }
 
 class _ForgetPasswordState extends State<ForgetPassword> {
+  void onpressed(){
+
+      GoRouter.of(context)
+          .pushNamed(Routers.otpverification.name);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,9 +73,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     children: [
                       FadeInAnimation(
                         delay: 1.9,
-                        child: const CustomTextFormField(
+                        child:  CustomTextFormField(
                           hinttext: 'Enter your email',
-                          obsecuretext: false,
+                          obsecuretext: false, controller: TextEditingController(),
                         ),
                       ),
                       SizedBox(
@@ -79,10 +85,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                         delay: 2.1,
                         child: CustomElevatedButton(
                           message: "Send Code ",
-                          function: () {
-                            GoRouter.of(context)
-                                .pushNamed(Routers.otpverification.name);
-                          },
+                        onPressed:onpressed ,
                           color: Colors.black,
                         ),
                       ),

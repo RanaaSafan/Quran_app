@@ -17,6 +17,11 @@ class PasswordChange extends StatefulWidget {
 }
 
 class _PasswordChangeState extends State<PasswordChange> {
+  void onpressed(){
+
+      GoRouter.of(context).pushReplacement(Routers.loginpage.name);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +29,7 @@ class _PasswordChangeState extends State<PasswordChange> {
       body: SafeArea(
         child: Column(
           children: [
-            LottieBuilder.asset("assets/images/ticker.json"),
+            LottieBuilder.asset("assets/ticker.json"),
             FadeInAnimation(
               delay: 1,
               child: Text(
@@ -46,9 +51,7 @@ class _PasswordChangeState extends State<PasswordChange> {
               delay: 2,
               child: CustomElevatedButton(
                 message: "Back to Login",
-                function: () {
-                  GoRouter.of(context).pushReplacement(Routers.loginpage.name);
-                },
+               onPressed: onpressed,
                 color: Colors.black,
               ),
             ),

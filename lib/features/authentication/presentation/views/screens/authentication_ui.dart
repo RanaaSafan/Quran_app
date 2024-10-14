@@ -15,6 +15,11 @@ class AuthenticationUI extends StatefulWidget {
 }
 
 class _AuthenticationUIState extends State<AuthenticationUI> {
+  void onpresseeed(){
+
+      GoRouter.of(context).pushNamed(Routers.loginpage.name);
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +29,7 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
               height: MediaQuery.of(context).size.height ,
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                "assets/images/img.png",
+                "assets/ui2.jpg",
                 filterQuality: FilterQuality.high,
                 fit: BoxFit.cover,
               )),
@@ -35,29 +40,29 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
             child: SizedBox(
               child: Column(
                 children: [
-                  FadeInAnimation(
-                    delay: 1,
-                    child: Container(
-                      height: 60,
-                      width: 60,
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: AssetImage(
-                                  "assets/images/main logo light color.png"))),
-                    ),
-                  ),
-                  const FadeInAnimation(
-                    delay: 1.5,
-                    child: Text(
-                      "Flutter Spirit ❤️",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontFamily: "Urbanist",
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
+                  // FadeInAnimation(
+                  //   delay: 1,
+                  //   child: Container(
+                  //     height: 60,
+                  //     width: 60,
+                  //     decoration: const BoxDecoration(
+                  //         shape: BoxShape.circle,
+                  //         image: DecorationImage(
+                  //             image: AssetImage(
+                  //                 "assets/images/main logo light color.png"))),
+                  //   ),
+                  // ),
+                  // const FadeInAnimation(
+                  //   delay: 1.5,
+                  //   child: Text(
+                  //     "Flutter Spirit ❤️",
+                  //     style: TextStyle(
+                  //         fontSize: 30,
+                  //         fontFamily: "Urbanist",
+                  //         fontWeight: FontWeight.bold,
+                  //         color: Colors.black),
+                  //   ),
+                  // ),
                   const SizedBox(
                     height: 60,
                   ),
@@ -65,9 +70,7 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                     delay: 2,
                     child: CustomElevatedButton(
                       message: "Login",
-                      function: () {
-                        GoRouter.of(context).pushNamed(Routers.loginpage.name);
-                      },
+                      onPressed: onpresseeed,
                       color: Colors.black,
                     ),
                   ),

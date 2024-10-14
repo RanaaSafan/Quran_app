@@ -1,5 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/authentication/presentation/views/screens/authentication_ui.dart';
@@ -16,49 +16,49 @@ final router = GoRouter(routes: [
     path: Routers.authenticationpage.path,
     name: Routers.authenticationpage.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: AuthenticationUI());
+      return const MaterialPage(child: AuthenticationUI());
     },
   ),
   GoRoute(
     path: Routers.loginpage.path,
     name: Routers.loginpage.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: LoginPage());
+      return const MaterialPage(child: LoginPage());
     },
   ),
   GoRoute(
     path: Routers.signuppage.path,
     name: Routers.signuppage.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: SignupPage());
+      return const MaterialPage(child: SignupPage());
     },
   ),
   GoRoute(
     path: Routers.forgetpassword.path,
     name: Routers.forgetpassword.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: ForgetPasswordPage());
+      return const MaterialPage(child: ForgetPasswordPage());
     },
   ),
   GoRoute(
     path: Routers.newpassword.path,
     name: Routers.newpassword.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: NewPasswordPage());
+      return const MaterialPage(child: NewPasswordPage());
     },
   ),
   GoRoute(
     path: Routers.otpverification.path,
     name: Routers.otpverification.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: OtpVertificationPage());
+      return const MaterialPage(child: OtpVertificationPage());
     },
   ),
   GoRoute(
     path: Routers.passwordchanges.path,
     name: Routers.passwordchanges.name,
     pageBuilder: (context, state) {
-      return const CupertinoPage(child: PasswordChangePage());
+      return const MaterialPage(child: PasswordChangePage());
     },
   )
 ]);

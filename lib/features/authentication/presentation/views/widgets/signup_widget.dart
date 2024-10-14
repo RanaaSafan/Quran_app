@@ -19,7 +19,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromRGBO(232, 236, 244, 1),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -67,9 +67,9 @@ class _SignupWidegtState extends State<SignupWidegt> {
                     children: [
                       FadeInAnimation(
                         delay: 1.5,
-                        child: const CustomTextFormField(
-                          hinttext: 'Username',
-                          obsecuretext: false,
+                        child:  CustomTextFormField(
+                          hinttext: 'Enter your Username',
+                          obsecuretext: false, controller: TextEditingController(),
                         ),
                       ),
                       const SizedBox(
@@ -77,9 +77,9 @@ class _SignupWidegtState extends State<SignupWidegt> {
                       ),
                       FadeInAnimation(
                         delay: 1.8,
-                        child: const CustomTextFormField(
-                          hinttext: 'Email',
-                          obsecuretext: false,
+                        child:  CustomTextFormField(
+                          hinttext: 'Enter your Email',
+                          obsecuretext: false, controller: TextEditingController(),
                         ),
                       ),
                       const SizedBox(
@@ -87,20 +87,14 @@ class _SignupWidegtState extends State<SignupWidegt> {
                       ),
                       FadeInAnimation(
                         delay: 2.1,
-                        child: const CustomTextFormField(
-                          hinttext: 'Password',
-                          obsecuretext: true,
-                        ),
+                        child:   CustomPasswordTextFormField(hinttext: "Enter Your password", obsecuretext: true, controller: TextEditingController(),),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       FadeInAnimation(
                         delay: 2.4,
-                        child: const CustomTextFormField(
-                          hinttext: 'Confirm password',
-                          obsecuretext: false,
-                        ),
+                        child:  CustomPasswordTextFormField(hinttext: "Confirm Your password", obsecuretext: true, controller: TextEditingController(),),
                       ),
                       const SizedBox(
                         height: 20,
@@ -109,7 +103,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
                         delay: 2.7,
                         child: CustomElevatedButton(
                           message: "Register",
-                          function: () {},
+                         onPressed: (){},
                           color: Colors.black,
                         ),
                       ),
@@ -146,13 +140,32 @@ class _SignupWidegtState extends State<SignupWidegt> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              SvgPicture.asset(
-                                  "assets/images/facebook_ic (1).svg"),
-                              SvgPicture.asset("assets/images/google_ic-1.svg"),
+                              // SvgPicture.asset(
+                              //     "assets/images/facebook_ic (1).svg"),
+                              // SvgPicture.asset("assets/images/google_ic-1.svg"),
+                              // Image.asset(
+                              //   "assets/images/Vector.png",
+                              //   color: Colors.grey,
+                              // )
+
+                            Image.asset(
+                              height:50,
+                              width: 50,
+                              "assets/facebook.jpg",
+
+                            ),
                               Image.asset(
-                                "assets/images/Vector.png",
-                                color: Colors.grey,
-                              )
+                                height:50,
+                                width: 50,
+                                "assets/google.jpg",
+
+                              ),
+                              Image.asset(
+                                height:50,
+                                width: 50,
+                                "assets/iphone.jpg",
+
+                              ),
                             ],
                           ),
                         ),
@@ -161,27 +174,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
                   ),
                 ),
               ),
-              FadeInAnimation(
-                delay: 3.6,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 50),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don’t have an account?",
-                        style: Common().hinttext,
-                      ),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Register Now",
-                            style: Common().mediumTheme,
-                          )),
-                    ],
-                  ),
-                ),
-              )
+
             ],
           ),
         ),
