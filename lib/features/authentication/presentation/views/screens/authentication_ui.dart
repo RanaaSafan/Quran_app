@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,18 +14,17 @@ class AuthenticationUI extends StatefulWidget {
 }
 
 class _AuthenticationUIState extends State<AuthenticationUI> {
-  void onpresseeed(){
-
-      GoRouter.of(context).pushNamed(Routers.loginpage.name);
-
+  void onpresseeed() {
+    GoRouter.of(context).pushNamed(Routers.loginpage.name);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SizedBox(
-              height: MediaQuery.of(context).size.height ,
+              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
                 "assets/ui2.jpg",
@@ -73,9 +71,10 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                       onPressed: onpresseeed,
                       color: Colors.black,
                     ),
-                  ),
+
+                    ),
                   const SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   FadeInAnimation(
                     delay: 2.5,
@@ -96,14 +95,15 @@ class _AuthenticationUIState extends State<AuthenticationUI> {
                               EdgeInsets.symmetric(vertical: 20),
                             ),
                             backgroundColor:
-                            const MaterialStatePropertyAll(Colors.white)),
+                                const MaterialStatePropertyAll(Colors.white)),
                         child: const Text(
                           "Register",
                           style: TextStyle(
                               fontSize: 15,
                               fontFamily: "Urbanist-SemiBold",
                               fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                              color: Colors.black
+                          ),
                         )),
                   ),
                   const SizedBox(

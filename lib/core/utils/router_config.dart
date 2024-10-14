@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/Home/presentation/views/screens/home_screen.dart';
 import '../../features/authentication/presentation/views/screens/authentication_ui.dart';
 import '../../features/authentication/presentation/views/screens/forget_password_page.dart';
 import '../../features/authentication/presentation/views/screens/login_page.dart';
@@ -24,6 +25,13 @@ final router = GoRouter(routes: [
     name: Routers.loginpage.name,
     pageBuilder: (context, state) {
       return const MaterialPage(child: LoginPage());
+    },
+  ),
+  GoRoute(
+    path: Routers.HomeScreen.path,
+    name: Routers.HomeScreen.name,
+    pageBuilder: (context, state) {
+      return const MaterialPage(child: HomeScreen());
     },
   ),
   GoRoute(
@@ -60,5 +68,7 @@ final router = GoRouter(routes: [
     pageBuilder: (context, state) {
       return const MaterialPage(child: PasswordChangePage());
     },
-  )
+  ),
+
+
 ]);

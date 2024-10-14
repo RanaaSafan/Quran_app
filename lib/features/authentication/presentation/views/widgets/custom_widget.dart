@@ -8,12 +8,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/common.dart';
-
-class CustomTextFormField extends StatefulWidget {
+class CustomTextFormField extends StatelessWidget {
   final String hinttext;
   final bool obsecuretext;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+
   const CustomTextFormField({
     Key? key,
     required this.hinttext,
@@ -23,43 +23,40 @@ class CustomTextFormField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
-
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.controller,
-      obscureText: widget.obsecuretext,
-      validator: widget.validator,
+      controller: controller,
+      obscureText: obsecuretext,
+      validator: validator,
       decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(18),
-          // border: InputBorder.none,
-          border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.black),
-              borderRadius: BorderRadius.circular(12)),
-          hintText: widget.hinttext,
-          hintStyle: Common().hinttext),
+        contentPadding: const EdgeInsets.all(18),
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.black),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        hintText: hinttext,
+        hintStyle: Common().hinttext,
+      ),
     );
   }
 }
 
 class CustomPasswordTextFormField extends StatefulWidget {
   final String hinttext;
-    bool obsecuretext;
+  bool obsecuretext;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+
    CustomPasswordTextFormField({
     Key? key,
     required this.hinttext,
     required this.obsecuretext,
     required this.controller,
-     this.validator,
+    this.validator,
   }) : super(key: key);
 
   @override
-  State<CustomPasswordTextFormField> createState() => _CustomPasswordTextFormFieldState();
+  _CustomPasswordTextFormFieldState createState() => _CustomPasswordTextFormFieldState();
 }
 
 class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormField> {
@@ -68,33 +65,31 @@ class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormFiel
     return TextFormField(
       controller: widget.controller,
       obscureText: widget.obsecuretext,
-
       validator: widget.validator,
       decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(18),
-          hintText: widget.hinttext,
-          hintStyle: Common().hinttext,
-          border: OutlineInputBorder(
-              borderSide:
-              const BorderSide(color: Colors.black),
-              borderRadius: BorderRadius.circular(12)
-          ),
-          suffixIcon: IconButton(
-              onPressed: () {
-                setState(() {
-                  widget.obsecuretext=!widget.obsecuretext;
-                });
-              },
-              icon:widget.obsecuretext? const Icon(
-                  Icons.visibility_off_rounded):const Icon(
-                  Icons.visibility)
-          )),
-      );
+        contentPadding: const EdgeInsets.all(18),
+        hintText: widget.hinttext,
+        hintStyle: Common().hinttext,
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.black),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(() {
+              widget.obsecuretext = !widget.obsecuretext;
+            });
+          },
+          icon: widget.obsecuretext
+              ? const Icon(Icons.visibility_off_rounded)
+              : const Icon(Icons.visibility),
+        ),
+      ),
+    );
   }
 }
 
-
-class CustomElevatedButton extends StatefulWidget {
+class CustomElevatedButton extends StatelessWidget {
   final String message;
   final VoidCallback onPressed;
   final Color? color;
@@ -107,27 +102,9 @@ class CustomElevatedButton extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
-}
-
-class _CustomElevatedButtonState extends State<CustomElevatedButton> {
-  bool loading = false;
-
-  @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () async {
-        setState(() {
-          loading = true; // تعيين حالة التحميل إلى true
-        });
-
-        // استدعاء الدالة المقدمة
-        await widget.onPressed;
-
-        setState(() {
-          loading = false; // تعيين حالة التحميل إلى false بعد الانتهاء
-        });
-      },
+      onPressed: onPressed,
       style: ButtonStyle(
         side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
         shape: MaterialStatePropertyAll(
@@ -137,13 +114,11 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
         padding: const MaterialStatePropertyAll(
           EdgeInsets.symmetric(vertical: 20),
         ),
-        backgroundColor: MaterialStatePropertyAll(widget.color),
+        backgroundColor: MaterialStatePropertyAll(color),
       ),
-      child: loading
-          ? const CircularProgressIndicator() // عرض مؤشر التحميل إذا كانت الحالة في التحميل
-          : FittedBox(
+      child: FittedBox(
         child: Text(
-          widget.message,
+          message,
           style: Common().semiboldwhite,
         ),
       ),
