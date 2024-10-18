@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 
 import '../../features/Home/presentation/views/screens/home_screen.dart';
 import '../../features/authentication/presentation/views/screens/authentication_ui.dart';
@@ -17,7 +18,7 @@ final router = GoRouter(routes: [
     path: Routers.authenticationpage.path,
     name: Routers.authenticationpage.name,
     pageBuilder: (context, state) {
-      return const MaterialPage(child: AuthenticationUI());
+      return const MaterialPage(child: BottomNavigationHome());
     },
   ),
   GoRoute(

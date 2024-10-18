@@ -1,31 +1,3 @@
-// class Book {
-//   final int? id;
-//   final String? bookName;
-//   final String? writerName;
-//   final String? aboutWriter; // يمكن أن تكون null
-//   final String? writerDeath;
-//   final String? bookSlug;
-//
-//   Book({
-//     required this.id,
-//     required this.bookName,
-//     required this.writerName,
-//     this.aboutWriter,
-//     required this.writerDeath,
-//     required this.bookSlug,
-//   });
-//
-//   factory Book.fromJson(Map<String, dynamic> json) {
-//     return Book(
-//       id: json['id']?? 1,
-//       bookName: json['bookName'],
-//       writerName: json['writerName'],
-//       aboutWriter: json['aboutWriter'],
-//       writerDeath: json['writerDeath'],
-//       bookSlug: json['bookSlug'],
-//     );
-//   }
-// }
 class Book {
    String? name;
    String? id;
