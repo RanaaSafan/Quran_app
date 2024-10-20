@@ -32,7 +32,7 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
               Text(
                 widget.Prayer,
                 style: TextStyle(
-                  fontFamily: 'Roboto', // استخدام خط Roboto
+                  fontFamily: 'NotoSans', // استخدام خط Roboto
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -44,7 +44,7 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
                   Text(
                     widget.time,
                     style: TextStyle(
-                      fontFamily: 'Roboto', // استخدام خط Roboto
+                      fontFamily: 'NotoSans', // استخدام خط Roboto
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),

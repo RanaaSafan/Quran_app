@@ -21,4 +21,12 @@ class Routers {
       AppRouter(name: "/passwordchanges", path: "/passwordchanges");
   static AppRouter HomeScreen =
   AppRouter(name: "/HomeScreen", path: "/HomeScreen");
+
+  static AppRouter ContainerCounterTasbeeh =
+  AppRouter(name: "/ContainerCounterTasbeeh", path: "/ContainerCounterTasbeeh");
+
+
+  static AppRouter TasbeehContainerDhikr =
+  AppRouter(name: "/TasbeehContainerDhikr", path: "/TasbeehContainerDhikr");
+
 }
