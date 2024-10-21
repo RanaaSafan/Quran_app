@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:quran_app/features/Hadith/presentation/views/screens/hadith_screen.dart';
 import 'package:quran_app/features/Home/presentation/views/screens/home_screen.dart';
 import 'package:quran_app/features/quran/presentation/views/quran_screen.dart';
@@ -11,11 +12,11 @@ class BottomNavigationHome extends StatefulWidget {
 }
 
 class _BottomNavigationHomeState extends State<BottomNavigationHome> {
-  int currentIndex = 0;
+  int currentIndex = 1;
 
   List<Widget> screens = [
-    HomeScreen(),
     QuranScreen(),
+    HomeScreen(),
     HadithScreen(),
   ];
 
@@ -33,7 +34,7 @@ class _BottomNavigationHomeState extends State<BottomNavigationHome> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           //color: Color(0xFF0F227C),
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.2),
@@ -56,15 +57,29 @@ class _BottomNavigationHomeState extends State<BottomNavigationHome> {
               onTap: onTabIndex,
               items: [
                 BottomNavigationBarItem(
-                  icon: _buildIconWithBorder(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: _buildIconWithBorder(Icons.book_sharp),
+                  icon: Icon(
+                    FlutterIslamicIcons.quran2,
+                    size: 30,
+                    color: Color(0xffFFFFFF).withOpacity(0.5),
+                  ),
                   label: 'Quran',
                 ),
+
                 BottomNavigationBarItem(
-                  icon: _buildIconWithBorder(Icons.view_headline_outlined),
+                  icon: Icon(
+                    Icons.home_filled,
+                    size: 30,
+                    color: Color(0xffFFFFFF).withOpacity(0.5),
+                  ),
+                  label: 'Home',
+                ),
+
+                BottomNavigationBarItem(
+                  icon:  Icon(
+                    FlutterIslamicIcons.community,
+                    size: 30,
+                    color: Color(0xffFFFFFF).withOpacity(0.5),
+                  ),
                   label: 'Hadith',
                 ),
               ],
@@ -75,17 +90,4 @@ class _BottomNavigationHomeState extends State<BottomNavigationHome> {
     );
   }
 
-  Widget _buildIconWithBorder(IconData iconData) {
-    return Container(
-      padding: const EdgeInsets.all(8.0), // Padding around the icon
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20), // Rounded shape
-      //  border: Border.all(color: Color(0xFF0F227F), width: 2), // Border with color
-      ),
-      child: Icon(
-        iconData,
-        size: 20, // Icon size
-      ),
-    );
-  }
 }

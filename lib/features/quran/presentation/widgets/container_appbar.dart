@@ -22,7 +22,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
               bottomLeft: Radius.circular(20),
             ),
             gradient: const LinearGradient(
-              colors: [Color(0xff3B53B1), Color(0xff364AAA)], // تدرج لوني
+              colors: [Color(0xFF1D56B3), Color(0xff364AAA)], // تدرج لوني
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

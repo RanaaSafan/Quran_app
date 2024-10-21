@@ -5,6 +5,7 @@ import 'package:quran_app/features/Home/presentation/views/widgets/bottom_naviga
 
 import '../../features/Home/presentation/views/screens/home_screen.dart';
 import '../../features/Home/presentation/views/widgets/container_counter_tasbeeh.dart';
+import '../../features/Home/presentation/views/widgets/list_tasbeeh_container_dhikr.dart';
 import '../../features/Home/presentation/views/widgets/tasbeeh_conatiner_dhikr.dart';
 import '../../features/authentication/presentation/views/screens/authentication_ui.dart';
 import '../../features/authentication/presentation/views/screens/forget_password_page.dart';
@@ -72,21 +73,28 @@ final router = GoRouter(routes: [
       return const MaterialPage(child: PasswordChangePage());
     },
   ),
-  // GoRoute(
-  //   path: Routers.TasbeehContainerDhikr.path,
-  //   name: Routers.TasbeehContainerDhikr.name,
-  //   pageBuilder: (context, state) {
-  //     return const MaterialPage(child: TasbeehConatinerDhikr(data: '',));
-  //   },
-  // ),
-
   GoRoute(
-    path: Routers.ContainerCounterTasbeeh.path,
-    name: Routers.ContainerCounterTasbeeh.name,
+    path: Routers.TasbeehContainerDhikr.path,
+    name: Routers.TasbeehContainerDhikr.name,
     pageBuilder: (context, state) {
-      return const MaterialPage(child: ContainerCounterTasbeeh());
+      return const MaterialPage(child: TasbeehConatinerDhikr(data: '',));
     },
   ),
+
+  GoRoute(
+    path: Routers.ListTasbeehContainerDhikr.path,
+    name: Routers.ListTasbeehContainerDhikr.name,
+    pageBuilder: (context, state) {
+      return MaterialPage(child: ListTasbeehContainerDhikr());
+    },
+  ),
+  // GoRoute(
+  //   path: Routers.ContainerCounterTasbeeh.path,
+  //   name: Routers.ContainerCounterTasbeeh.name,
+  //   pageBuilder: (context, state) {
+  //     return const MaterialPage(child: ContainerCounterTasbeeh());
+  //   },
+  // ),
 
 
 ]);

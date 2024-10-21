@@ -20,10 +20,16 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
         width: 250,
         height: 180,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: Color(0x3F56CCFF)),
-        child:
-
-        Padding(
+            borderRadius: BorderRadius.circular(20),
+            color: Color(0xFF0A2060),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xffFFFFFF),
+                spreadRadius: 0.5,
+                blurRadius: 2,
+              )
+            ]),
+        child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -35,6 +41,7 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
                   fontFamily: 'NotoSans', // استخدام خط Roboto
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
+                  color: Color(0xffFFFFFF),
                 ),
               ),
               Row(
@@ -46,21 +53,21 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
                     style: TextStyle(
                       fontFamily: 'NotoSans', // استخدام خط Roboto
                       fontSize: 30,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.normal,
+                      color: Color(0xffFFFFFF),
                     ),
                   ),
                   Spacer(),
                   Icon(
-                    FlutterIslamicIcons.prayer,
-                    size: 30,
+                    FlutterIslamicIcons.prayingPerson,
+                    size: 40,
+                    color: Color(0xffFFFFFF).withOpacity(0.5),
                   )
                 ],
               ),
             ],
           ),
         ),
-
-
       ),
     );
   }

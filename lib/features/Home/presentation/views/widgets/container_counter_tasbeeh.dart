@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_router.dart';
@@ -12,11 +13,11 @@ class ContainerCounterTasbeeh extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: (){
-          GoRouter.of(context).pushNamed(Routers.TasbeehContainerDhikr.name);
+          GoRouter.of(context).push(Routers.ListTasbeehContainerDhikr.name);
         },
         child: Container(
           width: double.infinity,
-          height: 300,
+          height: 160,
           decoration: BoxDecoration(
             color: Color(0xFF0A2060),
               borderRadius: BorderRadius.circular(25),
@@ -28,14 +29,33 @@ class ContainerCounterTasbeeh extends StatelessWidget {
               )
             ]
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("Tasbeeh",style: TextStyle(fontSize: 25,color: Colors.white),),
-              Text("Counter",style: TextStyle(fontSize: 20,color: Colors.white),),
-              Text("Go to >",style: TextStyle(fontSize: 10,color: Colors.white70),),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Tasbeeh",style: TextStyle(fontSize: 30,color: Colors.white),),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(" Counter",style: TextStyle(fontSize: 25,color: Colors.white),),
+                    Spacer(),
+                    Icon(
+                      FlutterIslamicIcons.tasbihHand,
+                      size: 50,
+                      textDirection: TextDirection.rtl,
+                      color: Colors.white.withOpacity(0.5),
+                    )
+                  ],
+                ),
+
+                Text("    Go to >",style: TextStyle(fontSize: 10,color: Colors.white70),),
+
+              ],
+            ),
           ),
         ),
       ),

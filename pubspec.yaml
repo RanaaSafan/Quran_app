@@ -39,6 +39,8 @@ dependencies:
   pinput: ^3.0.1
   fluttertoast: ^8.2.4
   flutter_islamic_icons: ^1.0.2
+  intl: ^0.17.0
+  table_calendar:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
