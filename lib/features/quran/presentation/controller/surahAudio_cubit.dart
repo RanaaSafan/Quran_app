@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/features/quran/data/repo/Repo_surah.dart';
+import 'package:quran_app/features/quran/data/repo/repo_surah.dart';
 import 'package:quran_app/features/quran/presentation/controller/surahAudio_state.dart';
 
 
@@ -8,10 +8,9 @@ class SurahAudioCubit extends Cubit<SurahAudioState> {
 
   SurahAudioCubit(this.repoSurah) : super(SurahAudioInital());
 
-
-  Future<void> getSurahAudio() async {
+  Future<void> getSurahAudio(int surahNumber) async {
     emit(SurahAudioLoading());
-    var result = await repoSurah.FetchSurahAudio();
+    var result = await repoSurah.FetchSurahAudio(surahNumber);
 
     result.fold(
           (l) {
@@ -19,10 +18,8 @@ class SurahAudioCubit extends Cubit<SurahAudioState> {
         print('Surah failer: ${l.errMessage}');
       },
           (r) {
-        emit(SurahAudioSuccess(surahListAudio:r));
-        //   print('Reset password successful: $r');
+        emit(SurahAudioSuccess(surahListAudio: r));
       },
     );
   }
-
 }

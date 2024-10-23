@@ -7,15 +7,15 @@ import '../models/data.dart';
 import '../models/surah.dart';
 import '../models/surah_datas.dart';
 
-void main() async {
-  final apiService = ApiService(dio: Dio());
-  final repoSurah = RepoSurahImpl(apiservice: apiService);
-  final result = await repoSurah.FetchSurahAudio();
-  result.fold(
-        (failure) => print('Error: ${failure.toString()}'),
-        (surahList) => print('Fetched Surah: $surahList'),
-  );
-}
+// void main() async {
+//   final apiService = ApiService(dio: Dio());
+//   final repoSurah = RepoSurahImpl(apiservice: apiService);
+//   final result = await repoSurah.FetchSurahAudioShikh();
+//   result.fold(
+//         (failure) => print('Error: ${failure.toString()}'),
+//         (surahList) => print('Fetched Surah: $surahList'),
+//   );
+// }
 
 class RepoSurahImpl extends RepoSurah {
   final ApiService apiservice;
@@ -45,14 +45,14 @@ class RepoSurahImpl extends RepoSurah {
   }
 
   @override
-  Future<Either<Failure, Data>> FetchSurahAudio() async {
+  Future<Either<Failure, Data>> FetchSurahAudio(int value) async {
     try {
-      final endpoint = '/surah/1/ar.alafasy'; // Correct endpoint for fetching surahs
+      final endpoint = '/surah/$value/ar.alafasy'; // Correct endpoint for fetching surahs
       var data = await apiservice.get(endPoints: endpoint);
        //print(data);
       Data surahData = Data.fromJson(data["data"]);
 
-      print("Surah Data: $surahData");
+    //  print("Surah Data: $surahData");
       return right(surahData);
 
     } catch (e) {
@@ -60,5 +60,21 @@ class RepoSurahImpl extends RepoSurah {
       return left(ServerFailure(e.toString()));
     }
   }
+  // @override
+  // Future<Either<Failure, Data>> FetchSurahAudioShikh() async {
+  //   try {
+  //     final endpoint = '/edition';
+  //     var data = await apiservice.get(endPoints: endpoint);
+  //     print(data);
+  //     Data surahData = Data.fromJson(data["data"]);
+  //
+  //     print("Surah Data: $surahData");
+  //     return right(surahData);
+  //
+  //   } catch (e) {
+  //     print("Error fetching data: ${e.toString()}"); // Better error logging
+  //     return left(ServerFailure(e.toString()));
+  //   }
+  // }
 
 }

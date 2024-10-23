@@ -28,7 +28,7 @@ class SurahDatas {
 
   @override
   String toString() {
-    return 'SurahDatas(number: $number, name: $name, englishName: $englishName, numberOfAyahs: $numberOfAyahs)';
+    return 'SurahDatas(number: $number, name: $name, englishName: $englishName,englishNameTranslation:$englishNameTranslation ,numberOfAyahs: $numberOfAyahs,revelationType:$revelationType)';
   }
 
 }

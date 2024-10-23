@@ -11,5 +11,6 @@ import '../models/surah_datas.dart';
 abstract class RepoSurah{
 
   Future<Either<Failure,List<SurahDatas>>> FetchSurah();
-  Future<Either<Failure,Data>> FetchSurahAudio();
+  Future<Either<Failure,Data>> FetchSurahAudio(int value);
+  //Future<Either<Failure,Data>> FetchSurahAudioShikh();
 }
