@@ -55,10 +55,10 @@ class ApiService {
     return e.response?.data['message'] ?? 'Something went wrong';
   }
 
-  Future<Map<String, dynamic>> getPrayer() async {
+  Future<Map<String, dynamic>> getPrayer(String date  ) async {
     try {
       Response response = await _dio.get(
-          'https://api.aladhan.com/v1/timingsByAddress/18-10-2024?address=Cairo,UAE&method=7'
+          'https://api.aladhan.com/v1/timingsByAddress/$date?address=Cairo,UAE&method=7'
       );
       return response.data;
     } on DioException catch (e) {

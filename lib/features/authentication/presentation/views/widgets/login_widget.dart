@@ -48,7 +48,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   void _login() {
     if (formKey.currentState?.validate() ?? false) {
       print("Login successful");
-     GoRouter.of(context).pushNamed(Routers.HomeScreen.name);
+     GoRouter.of(context).push(Routers.BottomNavigationHome.name);
     } else {
       print("Form is not valid");
     }

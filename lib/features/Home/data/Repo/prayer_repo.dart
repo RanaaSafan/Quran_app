@@ -9,5 +9,5 @@ import '../models/timings.dart';
 
 
 abstract class PrayerRepo{
-  Future<Either<Failure, List<Timings>>> FetchPrayer();
+  Future<Either<Failure, List<Timings>>> FetchPrayer(String date);
 }

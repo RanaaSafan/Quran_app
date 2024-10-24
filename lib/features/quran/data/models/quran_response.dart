@@ -21,4 +21,6 @@ class QuranResponse {
   @override
   String toString() {
     return 'Surah(code: $code, status: $status, data: $datas)';
-  }}
+  }
+
+}

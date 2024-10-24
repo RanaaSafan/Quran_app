@@ -1,5 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import '../../../../../core/functions/api_service.dart';
+import '../../../data/Repo/prayer_repo_impl.dart';
+import '../../controller/prayer_cubit.dart';
 
 class DateCalender extends StatefulWidget {
   @override
@@ -38,8 +44,10 @@ class _DateCalenderState extends State<DateCalender> {
         onDaySelected: (selectedDay, focusedDay) {
           setState(() {
             _selectedDay = selectedDay;
-            _focusedDay = focusedDay; // Update the focused day
+            _focusedDay = focusedDay;
+          //  print(_selectedDay);// Update the focused day
           });
+           context.read<PrayerCubit>().getPrayer(_selectedDay.toIso8601String());
         },
         calendarStyle: CalendarStyle(
           defaultTextStyle: TextStyle(fontSize: 12), // Reduced text size

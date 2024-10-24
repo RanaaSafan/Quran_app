@@ -4,6 +4,7 @@ import 'package:quran_app/features/quran/data/repo/Repo_surah.dart';
 import '../../../../core/errors/failures.dart';
 import '../../../../core/functions/api_service.dart';
 import '../models/data.dart';
+import '../models/quran_edition.dart';
 import '../models/surah.dart';
 import '../models/surah_datas.dart';
 
@@ -35,7 +36,7 @@ class RepoSurahImpl extends RepoSurah {
       }
 
 
-     print("Surah Data: $surahData");
+     //print("Surah Data: $surahData");
       return right(surahData);
 
     } catch (e) {
@@ -45,9 +46,9 @@ class RepoSurahImpl extends RepoSurah {
   }
 
   @override
-  Future<Either<Failure, Data>> FetchSurahAudio(int value) async {
+  Future<Either<Failure, Data>> FetchSurahAudio(int value,String name) async {
     try {
-      final endpoint = '/surah/$value/ar.alafasy'; // Correct endpoint for fetching surahs
+      final endpoint = '/surah/$value/$name'; // Correct endpoint for fetching surahs
       var data = await apiservice.get(endPoints: endpoint);
        //print(data);
       Data surahData = Data.fromJson(data["data"]);
@@ -60,21 +61,23 @@ class RepoSurahImpl extends RepoSurah {
       return left(ServerFailure(e.toString()));
     }
   }
-  // @override
-  // Future<Either<Failure, Data>> FetchSurahAudioShikh() async {
-  //   try {
-  //     final endpoint = '/edition';
-  //     var data = await apiservice.get(endPoints: endpoint);
-  //     print(data);
-  //     Data surahData = Data.fromJson(data["data"]);
-  //
-  //     print("Surah Data: $surahData");
-  //     return right(surahData);
-  //
-  //   } catch (e) {
-  //     print("Error fetching data: ${e.toString()}"); // Better error logging
-  //     return left(ServerFailure(e.toString()));
-  //   }
-  // }
+  @override
+  Future<Either<Failure, List<QuranEdition>>> FetchSurahAudioShikh() async {
+    try {
+      final endpoint = '/edition?format=audio&language=ar&type=versebyverse';
+      var data = await apiservice.get(endPoints: endpoint);
+      List<QuranEdition> surahData = [];
+
+      for (var i in data["data"]) { // Ensure the key "Data" exists in the response
+        surahData.add(QuranEdition.fromJson(i));
+      }
+      // print("Surah Data: $surahData");
+      return right(surahData);
+
+    } catch (e) {
+      print("Error fetching data: ${e.toString()}"); // Better error logging
+      return left(ServerFailure(e.toString()));
+    }
+  }
 
 }

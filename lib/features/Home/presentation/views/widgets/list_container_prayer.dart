@@ -28,10 +28,13 @@ List<String> Data = [
 ];
 
 class _ListContainerPrayerState extends State<ListContainerPrayer> {
+  late  String date;
   @override
   void initState() {
     super.initState();
-    context.read<PrayerCubit>().getPrayer();
+    // استخدم التاريخ الحالي إذا لم يكن التاريخ محدد
+    date = DateTime.now().toIso8601String();
+    context.read<PrayerCubit>().getPrayer(date);
   }
 
   @override

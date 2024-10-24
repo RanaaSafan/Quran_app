@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Import for BlocProvider
 import 'package:quran_app/features/Home/presentation/controller/prayer_cubit.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
+import 'package:quran_app/features/quran/presentation/controller/shikh_cubit.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart'; // Import your Cubit
 
 import 'core/functions/api_service.dart';
@@ -35,6 +36,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               PrayerCubit(PrayerRepoImpl(apiservice: ApiService(dio: Dio()))),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ShikhCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))),
         ),
       ],
       child: MaterialApp.router(

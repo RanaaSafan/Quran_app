@@ -1,13 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:quran_app/features/quran/data/models/quran_edition.dart';
 import '../../../../core/functions/api_service.dart';
 import '../../data/models/surah_datas.dart';
 import '../../data/repo/Repo_surah_impl.dart';
 
 class ContainerSurah extends StatefulWidget {
-  const ContainerSurah({super.key, required this.data});
+  const ContainerSurah({super.key, required this.data, required this.quran});
   final SurahDatas data;
+  final QuranEdition quran;
 
   @override
   State<ContainerSurah> createState() => _ContainerSurahState();
@@ -31,7 +33,7 @@ class _ContainerSurahState extends State<ContainerSurah> {
     final repoSurah = RepoSurahImpl(apiservice: apiService);
 
     // Fetching the Surah audio data
-    final result = await repoSurah.FetchSurahAudio(widget.data.number);
+    final result = await repoSurah.FetchSurahAudio(widget.data.number,widget.quran.identifier);
     result.fold(
           (failure) {
         print('Error: ${failure.toString()}');
@@ -69,50 +71,6 @@ class _ContainerSurahState extends State<ContainerSurah> {
       },
     );
   }
-  // Future<void> playAllAyahAudios() async {
-  //   final apiService = ApiService(dio: Dio());
-  //   final repoSurah = RepoSurahImpl(apiservice: apiService);
-  //
-  //   // Fetching the Surah audio data
-  //   final result = await repoSurah.FetchSurahAudio(widget.data.number);
-  //   result.fold(
-  //         (failure) {
-  //       print('Error: ${failure.toString()}');
-  //     },
-  //         (surahData) async {
-  //       if (surahData.ayahs != null && surahData.ayahs!.isNotEmpty) {
-  //         for (int i = 0; i < surahData.ayahs!.length; i++) {
-  //           String? audioUrl = surahData.ayahs![i].audioSecondary?.isNotEmpty == true
-  //               ? surahData.ayahs![i].audioSecondary![0]
-  //               : null;
-  //
-  //           if (audioUrl != null) {
-  //             try {
-  //               await _audioPlayer.setUrl(audioUrl);
-  //               await _audioPlayer.play();
-  //
-  //               // Wait for the current audio to complete
-  //               await _audioPlayer.playerStateStream.firstWhere(
-  //                     (state) => state.processingState == ProcessingState.completed,
-  //               );
-  //
-  //             } catch (e) {
-  //               print('Error playing audio: $e');
-  //             }
-  //           } else {
-  //             print('No audio URL found for Ayah $i');
-  //           }
-  //         }
-  //         setState(() {
-  //           isPlaying = false; // تحديث حالة التشغيل بعد انتهاء التشغيل
-  //           currentlyPlayingSurah = null; // إعادة تعيين السورة الحالية
-  //         });
-  //       } else {
-  //         print('No ayah audio available');
-  //       }
-  //     },
-  //   );
-  // }
 
   void toggleAudio() async {
     if (isPlaying) {

@@ -17,11 +17,12 @@ import '../../features/authentication/presentation/views/screens/signUp_page.dar
 import 'app_router.dart';
 
 final router = GoRouter(routes: [
+
   GoRoute(
     path: Routers.authenticationpage.path,
     name: Routers.authenticationpage.name,
     pageBuilder: (context, state) {
-      return const MaterialPage(child: BottomNavigationHome());
+      return const MaterialPage(child: AuthenticationUI());
     },
   ),
   GoRoute(
@@ -29,6 +30,13 @@ final router = GoRouter(routes: [
     name: Routers.loginpage.name,
     pageBuilder: (context, state) {
       return const MaterialPage(child: LoginPage());
+    },
+  ),
+  GoRoute(
+    path: Routers.BottomNavigationHome.path,
+    name: Routers.BottomNavigationHome.name,
+    pageBuilder: (context, state) {
+      return const MaterialPage(child: BottomNavigationHome());
     },
   ),
   GoRoute(

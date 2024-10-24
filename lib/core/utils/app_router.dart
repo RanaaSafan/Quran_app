@@ -32,5 +32,8 @@ class Routers {
   static AppRouter ListTasbeehContainerDhikr =
   AppRouter(name: "/ListTasbeehContainerDhikr", path: "/ListTasbeehContainerDhikr");
 
+  static AppRouter BottomNavigationHome =
+  AppRouter(name: "/BottomNavigationHome", path: "/BottomNavigationHome");
+
 
 }

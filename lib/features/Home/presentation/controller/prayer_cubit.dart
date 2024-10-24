@@ -8,9 +8,9 @@ class PrayerCubit extends Cubit<PrayerState>{
 
   PrayerCubit(this.prayerRepo):super(PrayerInitial());
 
-  getPrayer() async {
+  getPrayer(String date) async {
     emit(PrayerLoading());
-    final result = await prayerRepo.FetchPrayer();
+    final result = await prayerRepo.FetchPrayer(date);
 
     result.fold(
             (failure) => emit(PrayerFailure(error: failure.errMessage)),

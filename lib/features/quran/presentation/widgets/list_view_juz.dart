@@ -18,11 +18,15 @@ class _ListViewJuzState extends State<ListViewJuz> {
   @override
   void initState() {
     super.initState();
+    // Clear the list before adding items to avoid duplication
+    juzList.clear();
+
     // Populate juzList with "Juz 1" to "Juz 30"
     for (int i = 1; i <= 30; i++) {
       juzList.add('Juz $i');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
