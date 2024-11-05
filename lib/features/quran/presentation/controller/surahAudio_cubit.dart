@@ -8,9 +8,9 @@ class SurahAudioCubit extends Cubit<SurahAudioState> {
 
   SurahAudioCubit(this.repoSurah) : super(SurahAudioInital());
 
-  Future<void> getSurahAudio(int surahNumber) async {
+  Future<void> getSurahAudio(int surahNumber,String name) async {
     emit(SurahAudioLoading());
-    var result = await repoSurah.FetchSurahAudio(surahNumber);
+    var result = await repoSurah.FetchSurahAudio(surahNumber,name);
 
     result.fold(
           (l) {

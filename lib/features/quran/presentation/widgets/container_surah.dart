@@ -115,6 +115,8 @@ class _ContainerSurahState extends State<ContainerSurah> {
                   onPressed: toggleAudio, // Toggle play/pause on press
                 ),
               ),
+
+
               Spacer(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
