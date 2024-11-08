@@ -18,13 +18,13 @@ import 'app_router.dart';
 
 final router = GoRouter(routes: [
 
-  GoRoute(
-    path: Routers.authenticationpage.path,
-    name: Routers.authenticationpage.name,
-    pageBuilder: (context, state) {
-      return const MaterialPage(child: AuthenticationUI());
-    },
-  ),
+  // GoRoute(
+  //   path: Routers.authenticationpage.path,
+  //   name: Routers.authenticationpage.name,
+  //   pageBuilder: (context, state) {
+  //     return const MaterialPage(child: AuthenticationUI());
+  //   },
+  // ),
   GoRoute(
     path: Routers.loginpage.path,
     name: Routers.loginpage.name,
