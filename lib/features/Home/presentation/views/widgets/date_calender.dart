@@ -25,49 +25,50 @@ class _DateCalenderState extends State<DateCalender> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xFF1D56B3),
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(30),
-          bottomLeft: Radius.circular(30),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('التقويم')),
+        backgroundColor: Color(0xFFbf360c), // You can adjust the color
       ),
-      height: 260, // Reduced height further
-      child: TableCalendar(
-        firstDay: DateTime.utc(2020, 1, 1),
-        lastDay: DateTime.utc(2030, 12, 31),
-        focusedDay: _focusedDay,
-        selectedDayPredicate: (day) {
-          return isSameDay(_selectedDay, day);
-        },
-        onDaySelected: (selectedDay, focusedDay) {
-          setState(() {
-            _selectedDay = selectedDay;
-            _focusedDay = focusedDay;
-          //  print(_selectedDay);// Update the focused day
-          });
-           context.read<PrayerCubit>().getPrayer(_selectedDay.toIso8601String());
-        },
-        calendarStyle: CalendarStyle(
-          defaultTextStyle: TextStyle(fontSize: 12), // Reduced text size
-          todayDecoration: BoxDecoration(
-            color: Colors.blue,
-            shape: BoxShape.circle,
-          ),
-          selectedDecoration: BoxDecoration(
-            color: Colors.orange,
-            shape: BoxShape.circle,
-          ),
-          markerDecoration: BoxDecoration(
-            color: Colors.red,
-            shape: BoxShape.circle,
-          ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFFbf360c), // Calendar container background color
         ),
-        rowHeight: 30, // Further reduced row height
-        headerStyle: HeaderStyle(
-          titleTextStyle: TextStyle(fontSize: 20), // Reduced header text size
-          formatButtonVisible: false, // Hide format button
+        child: TableCalendar(
+          firstDay: DateTime.utc(2020, 1, 1),
+          lastDay: DateTime.utc(2030, 12, 31),
+          focusedDay: _focusedDay,
+          selectedDayPredicate: (day) {
+            return isSameDay(_selectedDay, day);
+          },
+          onDaySelected: (selectedDay, focusedDay) {
+            setState(() {
+              _selectedDay = selectedDay;
+              _focusedDay = focusedDay;
+            });
+            context.read<PrayerCubit>().getPrayer(_selectedDay.toIso8601String());
+          },
+          calendarStyle: CalendarStyle(
+            defaultTextStyle: TextStyle(fontSize: 18, color: Colors.white), // Text style for calendar days
+            todayDecoration: BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            selectedDecoration: BoxDecoration(
+              color: Colors.orange,
+              shape: BoxShape.circle,
+            ),
+            markerDecoration: BoxDecoration(
+              color: Colors.red,
+              shape: BoxShape.circle,
+            ),
+          ),
+          rowHeight: 50, // Adjusted row height
+          headerStyle: HeaderStyle(
+            titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white), // Adjusted header text style
+            formatButtonVisible: false, // Hide format button
+            titleCentered: true, // Center title
+          ),
         ),
       ),
     );

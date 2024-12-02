@@ -95,7 +95,7 @@ class _NewPasswordState extends State<NewPassword> {
                         child: CustomElevatedButton(
                           message: "Reset Password ",
                          onPressed: onpresed,
-                          color: Colors.black,
+                         // color: Colors.black,
                         ),
                       ),
                     ],

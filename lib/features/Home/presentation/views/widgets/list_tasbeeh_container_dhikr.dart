@@ -26,8 +26,8 @@ class _ListTasbeehContainerDhikrState extends State<ListTasbeehContainerDhikr> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dhikrs",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),), // عنوان شريط التطبيق
-        backgroundColor: Color(0xFF0F227C), // لون خلفية شريط التطبيق
+        title: Text("اذكار",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),), // عنوان شريط التطبيق
+        backgroundColor: Color(0xFFd84315).withOpacity(0.9), // لون خلفية شريط التطبيق
         centerTitle: true, // لوضع العنوان في المنتصف
         iconTheme: IconThemeData(
             size: 30,
@@ -35,7 +35,7 @@ class _ListTasbeehContainerDhikrState extends State<ListTasbeehContainerDhikr> {
         ),
       ),
       body: Container(
-        color: Color(0xFF0F227C), // Set the background color here
+        //color: Color(0xFF0F227C), // Set the background color here
         child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: Data.length, // Number of prayer types

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quran_app/features/authentication/presentation/views/widgets/response_login.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/common.dart';
 import 'custom_widget.dart';
@@ -48,7 +49,11 @@ class _LoginWidgetState extends State<LoginWidget> {
   void _login() {
     if (formKey.currentState?.validate() ?? false) {
       print("Login successful");
-     GoRouter.of(context).push(Routers.BottomNavigationHome.name);
+    // GoRouter.of(context).push(Routers..name);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ResponseLogin()),
+      );
     } else {
       print("Form is not valid");
     }
@@ -56,163 +61,189 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
-      body: SafeArea(
-        child: Padding(
+    return Padding(
           padding: const EdgeInsets.all(10.0),
           child: Form(
             key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FadeInAnimation(
-                  delay: 1,
-                  child: IconButton(
-                    onPressed: () {
-                      GoRouter.of(context).pushNamed(Routers.authenticationpage.name);
-                    },
-                    icon: const Icon(
-                      CupertinoIcons.back,
-                      size: 35,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      FadeInAnimation(
-                        delay: 1.3,
-                        child: Text(
-                          "Welcome back! Glad ",
-                          style: Common().titelTheme,
-                        ),
-                      ),
-                      FadeInAnimation(
-                        delay: 1.6,
-                        child: Text(
-                          "to see you, Again!",
-                          style: Common().titelTheme,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Column(
-                    children: [
-                      FadeInAnimation(
-                        delay: 1.9,
-                        child: CustomTextFormField(
-                          hinttext: 'Enter your email',
-                          obsecuretext: false,
-                          controller: emailController,
-                          validator: _validateEmail,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      FadeInAnimation(
-                        delay: 2.2,
-                        child: CustomPasswordTextFormField(
-                          hinttext: "Enter Your password",
-                          obsecuretext: true,
-                          controller: passwordController,
-                          validator: _validatePassword,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      FadeInAnimation(
-                        delay: 2.5,
-                        child: Align(
-                            alignment: Alignment.centerRight,
-                            child: GestureDetector(
-                              onTap: () {
-                                GoRouter.of(context)
-                                    .pushNamed(Routers.forgetpassword.name);
-                              },
-                              child: Text(
-                                "Forget Password?",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: "Urbanist-SemiBold",
-                                ),
-                              ),
-                            )),
-                      ),
-
-                      const SizedBox(height: 10),
-                      FadeInAnimation(
-                        delay: 2.8,
-                        child: CustomElevatedButton(
-                          message: "Login",
-                          onPressed: _login,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SizedBox(
-                    height: 150,
-                    width: double.infinity,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // FadeInAnimation(
+                  //   delay: 1,
+                  //   child: IconButton(
+                  //     onPressed: () {
+                  //       GoRouter.of(context).pushNamed(Routers.authenticationpage.name);
+                  //     },
+                  //     icon: const Icon(
+                  //       CupertinoIcons.back,
+                  //       size: 35,
+                  //     ),
+                  //   ),
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(12.0),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       FadeInAnimation(
+                  //         delay: 1.3,
+                  //         child: Text(
+                  //           "Welcome back! Glad ",
+                  //           style: Common().titelTheme,
+                  //         ),
+                  //       ),
+                  //       FadeInAnimation(
+                  //         delay: 1.6,
+                  //         child: Text(
+                  //           "to see you, Again!",
+                  //           style: Common().titelTheme,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         FadeInAnimation(
-                          delay: 2.2,
-                          child: Text(
-                            "Or Log with",
-                            style: Common().semiboldblack,
+                            delay: 1.6,
+                            child:Text(" البريد الالكتروني   ",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        FadeInAnimation(
+                          delay: 1.9,
+                          child: CustomTextFormField(
+                            hinttext: 'اكتب بريدك الالكتروني ',
+                            obsecuretext: false,
+                            controller: emailController,
+                            validator: _validateEmail,
                           ),
                         ),
                         const SizedBox(height: 15),
                         FadeInAnimation(
-                          delay: 2.4,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 10, bottom: 10, right: 30, left: 30),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Image.asset(height: 50, width: 50, "assets/facebook.jpg"),
-                                Image.asset(height: 50, width: 50, "assets/google.jpg"),
-                                Image.asset(height: 50, width: 50, "assets/iphone.jpg"),
-                              ],
+                            delay: 2.2,
+                            child:Text(" كلمه المرور  ",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        FadeInAnimation(
+                          delay: 2.5,
+                          child: CustomPasswordTextFormField(
+                            hinttext: "ادخل كلمه المرور ",
+                            obsecuretext: true,
+                            controller: passwordController,
+                            validator: _validatePassword,
+                          ),
+                        ),
+                        const SizedBox(height: 15),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            FadeInAnimation(
+                              delay: 2.8,
+                              child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: InkWell(
+                                    onTap: () {
+                                      GoRouter.of(context)
+                                          .pushNamed(Routers.forgetpassword.name);
+                                    },
+                                    child: Text(
+                                      "نسيت كلمه المرور ؟",
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily: "Urbanist-SemiBold",
+                                      ),
+                                    ),
+                                  )
+                              ),
                             ),
+                          ],
+                        ),
+              
+                        const SizedBox(height: 10),
+                        FadeInAnimation(
+                          delay: 3.1,
+                          child: CustomElevatedButton(
+                            message: "تسجيل الدخول ",
+                            onPressed: _login,
                           ),
                         ),
                       ],
                     ),
                   ),
-                ),
-                FadeInAnimation(
-                  delay: 2.8,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: Row(
-                      children: [
-                        Text("Don’t have an account?", style: Common().hinttext),
-                        TextButton(
-                          onPressed: () {
-                            GoRouter.of(context).pushNamed(Routers.signuppage.name);
-                          },
-                          child: Text("Register Now", style: Common().mediumTheme),
-                        ),
-                      ],
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: SizedBox(
+                      height: 150,
+                      width: double.infinity,
+                      child: Column(
+                        children: [
+                          FadeInAnimation(
+                            delay: 3.4,
+                            child: Text(
+                              "خيارات تسجيل الدخول الاخري ",
+                              style: Common().semiboldblack,
+                            ),
+                          ),
+                          const SizedBox(height: 15),
+                          FadeInAnimation(
+                            delay: 3.7,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 10, bottom: 10, right: 30, left: 30),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset(height: 50, width: 50, "assets/facebook.jpg"),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Image.asset(height: 50, width: 50, "assets/google.jpg"),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Image.asset(height: 50, width: 50, "assets/iphone.jpg"),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                  // FadeInAnimation(
+                  //   delay: 2.8,
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.only(left: 50),
+                  //     child: Row(
+                  //       children: [
+                  //         Text("Don’t have an account?", style: Common().hinttext),
+                  //         TextButton(
+                  //           onPressed: () {
+                  //             GoRouter.of(context).pushNamed(Routers.signuppage.name);
+                  //           },
+                  //           child: Text("Register Now", style: Common().mediumTheme),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+      
     );
   }
 }

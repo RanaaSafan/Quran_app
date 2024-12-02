@@ -8,7 +8,11 @@ class AppRouter {
 }
 
 class Routers {
-  static AppRouter authenticationpage = AppRouter(name: "/", path: "/");
+  //static AppRouter authenticationpage = AppRouter(name: "/", path: "/");
+  static AppRouter OnboardingScreen =
+  AppRouter(name: "/OnboardingScreen", path: "/OnboardingScreen");
+  static AppRouter SplashScreen =
+  AppRouter(name: "/SplashScreen", path: "/SplashScreen");
   static AppRouter loginpage = AppRouter(name: "/login", path: "/login");
   static AppRouter signuppage = AppRouter(name: "/signip", path: "/signup");
   static AppRouter forgetpassword =
@@ -34,6 +38,7 @@ class Routers {
 
   static AppRouter BottomNavigationHome =
   AppRouter(name: "/BottomNavigationHome", path: "/BottomNavigationHome");
+
 
 
 }

@@ -14,7 +14,7 @@ class _HadithScreenState extends State<HadithScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F227C),
+      backgroundColor: Color(0xFFFFFFFF),
       body: CustomScrollView(
 
           slivers: [

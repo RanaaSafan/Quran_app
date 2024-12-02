@@ -30,12 +30,12 @@ class _DhikrState extends State<Dhikr> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-       title: Text("Dhikr",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),), // عنوان شريط التطبيق
-        backgroundColor: Color(0xFF0F207C), // لون خلفية شريط التطبيق
+       title: Text("ذكر",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Color(0xFFdd2c00).withOpacity(0.9),),), // عنوان شريط التطبيق
+        backgroundColor: Color(0xFFFFFFFF), // لون خلفية شريط التطبيق
         centerTitle: true, // لوضع العنوان في المنتصف
         iconTheme: IconThemeData(
           size: 30,
-          color: Colors.white,
+          color: Color(0xFFdd2c00),
         ),
         actions:[
           Padding(
@@ -44,17 +44,17 @@ class _DhikrState extends State<Dhikr> {
               FlutterIslamicIcons.tasbih2,
               size: 50,
               textDirection: TextDirection.rtl,
-              color: Colors.white.withOpacity(0.5),
+                color: Color(0xFFdd2c00),
             ),
           ),
         ]
       ),
-      backgroundColor: const Color(0xFF0F227C),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 40),
+          SizedBox(height: 50),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Center(
@@ -63,7 +63,7 @@ class _DhikrState extends State<Dhikr> {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
-                  color: Colors.white, // لون النص للزيادة في التباين
+                  color:  Color(0xFFdd2c00), // لون النص للزيادة في التباين
                 ),
               ),
             ),
@@ -74,7 +74,7 @@ class _DhikrState extends State<Dhikr> {
               width: 200,
               height: 180,
               decoration: BoxDecoration(
-                color: Colors.blueAccent[700], // لون أغمق ليتناسب مع الخلفية
+                color: Color(0xFF4e342e), // لون أغمق ليتناسب مع الخلفية
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(35),
                   bottomRight: Radius.circular(35),
@@ -121,7 +121,7 @@ class _DhikrState extends State<Dhikr> {
                 width: 170,
                 height: 130,
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent[700], // لون أغمق
+                  color: Color(0xFF4e342e), // لون أغمق
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(50),
                       bottomLeft: Radius.circular(50)),

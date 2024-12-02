@@ -14,14 +14,14 @@ class _QuranScreenState extends State<QuranScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF0F227C),
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: AppBar(
-        backgroundColor: Color(0xFF0F227C),
+        backgroundColor: Color(0xFFFFFFFF),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text("Sheikh names",style: TextStyle(color: Colors.blueAccent,fontSize: 30),)
+            Text("قارئ الشيخ ",style: TextStyle(color: Color(0xFFA85000),fontSize: 30,fontWeight: FontWeight.bold),)
           ],
         ),
       ),

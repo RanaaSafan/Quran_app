@@ -115,7 +115,7 @@ class _AutoPlayQuranState extends State<AutoPlayQuran> {
       onPressed: isPlaying ? stop : play,
       iconSize: 25.0,
       icon: isPlaying ? Icon(Icons.pause) : Icon(Icons.play_arrow),
-      color: Colors.cyan,
+      color: Colors.white,
     );
   }
 }

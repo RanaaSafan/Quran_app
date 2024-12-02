@@ -1,4 +1,4 @@
-import 'package:quran_app/features/quran/data/models/quran_edition.dart';
+import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
 
 class QuranEditionResponse {
   final int code;

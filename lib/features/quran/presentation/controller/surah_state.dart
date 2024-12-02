@@ -1,8 +1,8 @@
 
 
-import '../../data/models/data.dart';
-import '../../data/models/surah.dart';
-import '../../data/models/surah_datas.dart';
+
+
+import '../../data/models/model_surah_names/surah_datas.dart';
 
 class SurahState{}
 

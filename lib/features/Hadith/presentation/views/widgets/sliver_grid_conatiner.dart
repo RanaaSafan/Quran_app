@@ -47,8 +47,8 @@ class _SliverGridContainerState extends State<SliverGridContainer> {
               delegate: SliverChildBuilderDelegate(
                     (context, index) =>
                     HadithContainer(
-                      key: ValueKey(state.books[index].id),
-                      name: state.books[index].name!,
+                      key: ValueKey(state.books[index].id!),
+                      name: state.books[index].id!,
                     ),
                 childCount: state.books.length,
               ),

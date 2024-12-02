@@ -43,9 +43,17 @@ dependencies:
   table_calendar:
   audioplayers:
   just_audio:
+  curved_navigation_bar:
+  sleek_circular_slider:
+  step_progress_indicator:
+  geolocator:
+  sensors_plus:
+  vector_math:
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  flutter_stepindicator: ^0.1.7
 
 dev_dependencies:
   flutter_test:

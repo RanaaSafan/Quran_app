@@ -39,7 +39,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         curve: Curves.easeOut,
       );
     } else {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>SplashScreen()));
     }
   }
 

@@ -17,33 +17,29 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 250,
-        height: 180,
+        width: double.infinity,
+        height: 160,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Color(0xFF0A2060),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xffFFFFFF),
-                spreadRadius: 0.5,
-                blurRadius: 2,
-              )
-            ]),
+          borderRadius: BorderRadius.circular(20),
+          color: Color(0xFFfbe9e7),  // لون خلفية هادئ
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xFFFFA500).withOpacity(0.3), // ظل برتقالي خفيف
+              spreadRadius: 1,
+              blurRadius: 3,
+            )
+          ],
+          border: Border.all(
+            color: Color(0xFFFFA500), // لون الحدود برتقالي
+            width: 2, // سُمك الحد
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(
-                widget.Prayer,
-                style: TextStyle(
-                  fontFamily: 'NotoSans', // استخدام خط Roboto
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xffFFFFFF),
-                ),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,18 +47,28 @@ class _ContainerPrayerState extends State<ContainerPrayer> {
                   Text(
                     widget.time,
                     style: TextStyle(
-                      fontFamily: 'NotoSans', // استخدام خط Roboto
-                      fontSize: 30,
+                      fontFamily: 'NotoSans', // استخدام خط ناعم
+                      fontSize: 35,
                       fontWeight: FontWeight.normal,
-                      color: Color(0xffFFFFFF),
+                      color: Color(0xFF333333), // لون النص قاتم
                     ),
                   ),
                   Spacer(),
-                  Icon(
-                    FlutterIslamicIcons.prayingPerson,
-                    size: 40,
-                    color: Color(0xffFFFFFF).withOpacity(0.5),
-                  )
+                  Text(
+                    widget.Prayer,
+                    style: TextStyle(
+                      fontFamily: 'NotoSans',
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF333333), // لون النص قاتم
+                    ),
+                    textDirection: TextDirection.rtl,
+                  ),
+                  // Icon(
+                  //   FlutterIslamicIcons.prayingPerson,
+                  //   size: 40,
+                  //   color: Color(0xffFFFFFF).withOpacity(0.5),
+                  // )
                 ],
               ),
             ],

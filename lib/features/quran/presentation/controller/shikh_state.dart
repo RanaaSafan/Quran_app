@@ -1,10 +1,10 @@
 
 
-import 'package:quran_app/features/quran/data/models/quran_edition.dart';
+import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
 
 import '../../data/models/data.dart';
-import '../../data/models/surah.dart';
-import '../../data/models/surah_datas.dart';
+import '../../data/models/model_surah_names/surah.dart';
+
 
 class ShikhState{}
 

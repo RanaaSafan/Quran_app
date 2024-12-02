@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/quran/data/models/quran_edition.dart';
+import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
 import 'package:quran_app/features/quran/presentation/widgets/tab_bar_juzSurah.dart';
 
 class ShikhNames extends StatelessWidget {
@@ -16,25 +16,28 @@ class ShikhNames extends StatelessWidget {
           onTap: (){
             Navigator.push(context, MaterialPageRoute(builder:(context)=> TabBarJuzsurah(quran: data,)));
           },
-          child: Container(
-            width: double.infinity,
-            height: 55,
-            decoration: BoxDecoration(
-              color: const Color(0xFF0A2060),
-              borderRadius: BorderRadius.circular(17),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    data.name,
-                    style: const TextStyle(color: Colors.white, fontSize: 20),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: double.infinity,
+              height: 55,
+              decoration: BoxDecoration(
+                color: const Color(0xFFA85000),
+                borderRadius: BorderRadius.circular(17),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      data.name,
+                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

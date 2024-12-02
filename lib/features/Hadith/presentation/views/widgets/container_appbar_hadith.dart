@@ -13,7 +13,7 @@ class ContainerAppbarHadith extends StatelessWidget implements PreferredSizeWidg
     return SliverAppBar(
       expandedHeight: 150.0, // الارتفاع الكلي عند تمدد الـ SliverAppBar
       pinned: true, // لجعل الـ SliverAppBar يبقى مرئيًا في الأعلى عند التمرير
-      backgroundColor: Color(0xFF0F227C), // خلفية اللون
+      backgroundColor: Color(0xFFbf360c), // خلفية اللون
       flexibleSpace: FlexibleSpaceBar(
         background: Container(
           decoration: BoxDecoration(
@@ -22,7 +22,7 @@ class ContainerAppbarHadith extends StatelessWidget implements PreferredSizeWidg
               bottomLeft: Radius.circular(20),
             ),
             gradient: const LinearGradient(
-              colors: [Color(0xFF1D56B3), Color(0xff364AAA)], // تدرج لوني
+              colors: [Color(0xFFbf390c), Color(0xFFbf360c)], // تدرج لوني
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),

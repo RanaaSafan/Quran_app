@@ -52,7 +52,7 @@ class _PasswordChangeState extends State<PasswordChange> {
               child: CustomElevatedButton(
                 message: "Back to Login",
                onPressed: onpressed,
-                color: Colors.black,
+              //  color: Colors.black,
               ),
             ),
           ],

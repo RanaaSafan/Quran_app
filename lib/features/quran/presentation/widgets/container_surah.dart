@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:quran_app/features/quran/data/models/quran_edition.dart';
+import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
+import 'package:quran_app/features/quran/presentation/widgets/surah_detail_screen.dart';
 import '../../../../core/functions/api_service.dart';
-import '../../data/models/surah_datas.dart';
+
+import '../../data/models/model_surah_names/surah_datas.dart';
 import '../../data/repo/Repo_surah_impl.dart';
 
 class ContainerSurah extends StatefulWidget {
@@ -94,38 +96,51 @@ class _ContainerSurahState extends State<ContainerSurah> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          width: double.infinity,
-          height: 55,
-          decoration: BoxDecoration(
-            color: const Color(0xFF0A2060),
-            borderRadius: BorderRadius.circular(17),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  icon: Icon(isPlaying
-                      ? Icons.pause_circle_filled
-                      : Icons.play_circle_filled,
-                      size: 30, color: Colors.blue),
-                  onPressed: toggleAudio, // Toggle play/pause on press
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: double.infinity,
+            height: 55,
+            decoration: BoxDecoration(
+              color: const Color(0xFFA85000),
+              borderRadius: BorderRadius.circular(17),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                    icon: Icon(isPlaying
+                        ? Icons.pause_circle_filled
+                        : Icons.play_circle_filled,
+                        size: 30, color: Colors.white),
+                    onPressed: toggleAudio, // Toggle play/pause on press
+                  ),
                 ),
-              ),
 
 
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  widget.data.name,
-                  style: const TextStyle(color: Colors.white, fontSize: 20),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: (){
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => SurahDetailsScreen(surahData: widget.data),
+                      //   ),
+                      // );
+                    },
+                    child: Text(
+                      widget.data.name,
+                      style: const TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

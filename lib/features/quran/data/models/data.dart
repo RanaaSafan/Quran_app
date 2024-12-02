@@ -1,6 +1,6 @@
 
-import 'ayah.dart';
-import 'edition.dart';
+import 'model_edition_surah/ayah.dart';
+import 'model_shiekh_names/edition.dart';
 
 class Data {
   final int? number;

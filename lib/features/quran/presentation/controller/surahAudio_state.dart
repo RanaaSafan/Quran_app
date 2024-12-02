@@ -1,6 +1,5 @@
 import '../../data/models/data.dart';
-import '../../data/models/surah.dart';
-import '../../data/models/surah_datas.dart';
+
 
 abstract class SurahAudioState {}
 

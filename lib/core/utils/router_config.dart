@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
+import 'package:quran_app/features/splash/presentation/views/screens/splash_screen.dart';
+import 'package:quran_app/features/splash/presentation/widgets/onboarding_widget.dart';
 
 import '../../features/Home/presentation/views/screens/home_screen.dart';
 import '../../features/Home/presentation/views/widgets/container_counter_tasbeeh.dart';
@@ -14,9 +16,13 @@ import '../../features/authentication/presentation/views/screens/new_password_pa
 import '../../features/authentication/presentation/views/screens/otp_vertification_page.dart';
 import '../../features/authentication/presentation/views/screens/password_change_page.dart';
 import '../../features/authentication/presentation/views/screens/signUp_page.dart';
+import '../../features/splash/presentation/views/screens/onboarding_screen.dart';
 import 'app_router.dart';
 
-final router = GoRouter(routes: [
+final router = GoRouter(
+    //initialLocation: Routers.OnboardingScreen.path,
+    initialLocation: Routers.BottomNavigationHome.path,
+    routes: [
 
   // GoRoute(
   //   path: Routers.authenticationpage.path,
@@ -25,6 +31,20 @@ final router = GoRouter(routes: [
   //     return const MaterialPage(child: AuthenticationUI());
   //   },
   // ),
+  GoRoute(
+    path: Routers.OnboardingScreen.path,
+    name: Routers.OnboardingScreen.name,
+    pageBuilder: (context, state) {
+      return  MaterialPage(child: OnboardingScreen());
+    },
+  ),
+  GoRoute(
+    path: Routers.SplashScreen.path,
+    name: Routers.SplashScreen.name,
+    pageBuilder: (context, state) {
+      return  MaterialPage(child: SplashScreen());
+    },
+  ),
   GoRoute(
     path: Routers.loginpage.path,
     name: Routers.loginpage.name,

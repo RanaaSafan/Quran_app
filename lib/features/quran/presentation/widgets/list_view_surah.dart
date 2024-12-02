@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/functions/api_service.dart';
-import 'package:quran_app/features/quran/data/models/quran_edition.dart';
+import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart';
 import '../controller/surah_state.dart';

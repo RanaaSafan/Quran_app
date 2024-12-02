@@ -4,9 +4,10 @@ import 'package:quran_app/features/quran/data/repo/Repo_surah.dart';
 import '../../../../core/errors/failures.dart';
 import '../../../../core/functions/api_service.dart';
 import '../models/data.dart';
-import '../models/quran_edition.dart';
-import '../models/surah.dart';
-import '../models/surah_datas.dart';
+import '../models/model_edition_surah/quran_edition.dart';
+import '../models/model_surah_names/surah.dart';
+import '../models/model_surah_names/surah_datas.dart';
+
 
 // void main() async {
 //   final apiService = ApiService(dio: Dio());

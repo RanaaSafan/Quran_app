@@ -18,17 +18,18 @@ class ListContainerPrayer extends StatefulWidget {
 final repoPrayer = PrayerRepoImpl(apiservice: ApiService(dio: Dio()));
 final prayerCubit = PrayerCubit(repoPrayer);
 List<String> Data = [
-  "Fajr",
-  "Sunrise",
-  "Dhuhr",
-  "Asr",
-  "Sunset",
-  "Maghrib",
-  "Isha",
+  "الفجر",
+  "الشروق",
+  "الظهر",
+  "العصر",
+  "الغروب",
+  "المغرب",
+  "العشاء",
 ];
 
 class _ListContainerPrayerState extends State<ListContainerPrayer> {
-  late  String date;
+  late String date;
+
   @override
   void initState() {
     super.initState();
@@ -39,25 +40,28 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PrayerCubit, PrayerState>(
-      builder: (context, state) {
-        if (state is PrayerLoading) {
-          return Center(child: CircularProgressIndicator());
-        } else if (state is PrayerSuccess) {
-          return SizedBox(
-            height: 200,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: const Text("مواعيد الصلاه ",style: TextStyle(color: Color(0xFFFFFFFF),fontSize: 30),)),
+        backgroundColor: const Color(0xFFA85000),
+      ),
+      body: BlocBuilder<PrayerCubit, PrayerState>(
+        builder: (context, state) {
+          if (state is PrayerLoading) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is PrayerSuccess) {
+            return ListView.builder(
+              scrollDirection: Axis.vertical,
               itemCount: Data.length, // Number of prayer types
               itemBuilder: (BuildContext context, int index) {
-                // Here we are ensuring that we access the correct prayer time
+                // تحديد الوقت لكل صلاة بناءً على الحالة المستقبلة
                 String time;
                 switch (index) {
                   case 0:
                     time = state.timings[0].Fajr ?? 'N/A'; // وقت الفجر
                     break;
                   case 1:
-                    time = state.timings[0].Sunrise?? 'N/A'; // وقت الشروق
+                    time = state.timings[0].Sunrise ?? 'N/A'; // وقت الشروق
                     break;
                   case 2:
                     time = state.timings[0].Dhuhr ?? 'N/A'; // وقت الظهر
@@ -66,7 +70,7 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
                     time = state.timings[0].Asr ?? 'N/A'; // وقت العصر
                     break;
                   case 4:
-                    time = state.timings[0].Sunset ?? 'N/A'; // وقت المغرب
+                    time = state.timings[0].Sunset ?? 'N/A'; // وقت الغروب
                     break;
                   case 5:
                     time = state.timings[0].Maghrib ?? 'N/A'; // وقت المغرب
@@ -74,7 +78,6 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
                   case 6:
                     time = state.timings[0].Isha ?? 'N/A'; // وقت العشاء
                     break;
-
                   default:
                     time = 'N/A'; // في حالة عدم العثور على الوقت
                 }
@@ -84,13 +87,13 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
                   Prayer: Data[index],
                 );
               },
-            ),
-          );
-        } else if (state is PrayerFailure) {
-          return Center(child: Text('Error: ${state.error}'));
-        }
-        return Center(child: Text('No data available'));
-      },
+            );
+          } else if (state is PrayerFailure) {
+            return Center(child: Text('Error: ${state.error}'));
+          }
+          return const Center(child: Text('No data available'));
+        },
+      ),
     );
   }
 }

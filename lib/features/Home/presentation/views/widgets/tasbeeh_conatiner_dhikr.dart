@@ -8,7 +8,7 @@ class TasbeehConatinerDhikr extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(12.0), // زيادة التباعد قليلاً
       child: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -19,28 +19,47 @@ class TasbeehConatinerDhikr extends StatelessWidget {
           );
         },
         child: Material( // Wrap the Container in Material
-          color: Colors.transparent, // Keep the material transparent so that the container's color is visible
+          color: Colors.transparent, // Keep the material transparent
           child: Container(
             width: double.infinity,
             height: 120,
             decoration: BoxDecoration(
-              color: const Color(0xFF0A2060),
+              gradient: LinearGradient( // تدرج لوني لتحسين المظهر
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xFFd84315).withOpacity(0.8), // اللون الأساسي
+                  Color(0xFFd84315).withOpacity(0.4), // اللون الفاتح في الأسفل
+                ],
+              ),
               borderRadius: BorderRadius.circular(25),
               boxShadow: const [
                 BoxShadow(
-                  color: Color(0xffFFFFFF),
-                  spreadRadius: 0.5,
-                  blurRadius: 2,
-                )
+                  color: Colors.black12, // ظل أكثر نعومة
+                  spreadRadius: 1,
+                  blurRadius: 8,
+                  offset: Offset(0, 4),
+                ),
               ],
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center, // وضع النص في المنتصف
               children: [
                 Text(
                   data,
-                  style: const TextStyle(fontSize: 25, color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 24, // حجم خط أصغر قليلاً
+                    fontWeight: FontWeight.bold, // خط عريض لجذب الانتباه
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        blurRadius: 5.0,
+                        color: Colors.black45,
+                        offset: Offset(2.0, 2.0),
+                      ),
+                    ], // إضافة ظل للنص لجعله أكثر وضوحاً
+                  ),
                 ),
               ],
             ),

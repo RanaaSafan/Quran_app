@@ -29,14 +29,17 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obsecuretext,
       validator: validator,
       decoration: InputDecoration(
+
         contentPadding: const EdgeInsets.all(18),
         border: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.black),
           borderRadius: BorderRadius.circular(12),
+
         ),
         hintText: hinttext,
         hintStyle: Common().hinttext,
       ),
+      textAlign: TextAlign.end,
     );
   }
 }
@@ -51,6 +54,7 @@ class CustomPasswordTextFormField extends StatefulWidget {
     Key? key,
     required this.hinttext,
     required this.obsecuretext,
+     //this.obsecuretext = false,
     required this.controller,
     this.validator,
   }) : super(key: key);
@@ -74,7 +78,7 @@ class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormFiel
           borderSide: const BorderSide(color: Colors.black),
           borderRadius: BorderRadius.circular(12),
         ),
-        suffixIcon: IconButton(
+        prefixIcon: IconButton(
           onPressed: () {
             setState(() {
               widget.obsecuretext = !widget.obsecuretext;
@@ -85,6 +89,7 @@ class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormFiel
               : const Icon(Icons.visibility),
         ),
       ),
+      textAlign: TextAlign.end,
     );
   }
 }
@@ -92,34 +97,42 @@ class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormFiel
 class CustomElevatedButton extends StatelessWidget {
   final String message;
   final VoidCallback onPressed;
-  final Color? color;
 
   const CustomElevatedButton({
     Key? key,
     required this.message,
     required this.onPressed,
-    this.color = Colors.white,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
-        shape: MaterialStatePropertyAll(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF522700), Color(0xFFA85000)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
-        fixedSize: const MaterialStatePropertyAll(Size.fromWidth(370)),
-        padding: const MaterialStatePropertyAll(
-          EdgeInsets.symmetric(vertical: 20),
-        ),
-        backgroundColor: MaterialStatePropertyAll(color),
+        borderRadius: BorderRadius.circular(25),
       ),
-      child: FittedBox(
-        child: Text(
-          message,
-          style: Common().semiboldwhite,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+          side: const MaterialStatePropertyAll(BorderSide(color: Colors.grey)),
+          shape: MaterialStatePropertyAll(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          ),
+          fixedSize: const MaterialStatePropertyAll(Size.fromWidth(420)),
+          padding: const MaterialStatePropertyAll(
+            EdgeInsets.symmetric(vertical: 20),
+          ),
+          backgroundColor: MaterialStatePropertyAll(Colors.transparent),
+        ),
+        child: FittedBox(
+          child: Text(
+            message,
+            style: Common().semiboldwhite,
+          ),
         ),
       ),
     );

@@ -43,6 +43,18 @@ class ApiService {
     }
   }
 
+  Future<Map<String, dynamic>> getHadithBySheikh(String name) async {
+    try {
+      Response response = await _dio.get(
+          'https://api.hadith.gading.dev/books/$name?range=300-500'
+      );
+      return response.data;
+    } on DioException catch (e) {
+      String errorMessage = _extractErrorMessage(e);
+      throw Exception(errorMessage);
+    }
+  }
+
   /// Extracts a user-friendly error message from the DioException.
   String _extractErrorMessage(DioException e) {
     if (e.response?.data is Map<String, dynamic>) {
