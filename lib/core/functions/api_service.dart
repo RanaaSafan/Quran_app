@@ -55,6 +55,18 @@ class ApiService {
     }
   }
 
+  Future<Map<String, dynamic>> getAsmaaHusna() async {
+    try {
+      Response response = await _dio.get(
+          'https://asmaul-husna-api.vercel.app/api/all'
+      );
+      return response.data;
+    } on DioException catch (e) {
+      String errorMessage = _extractErrorMessage(e);
+      throw Exception(errorMessage);
+    }
+  }
+
   /// Extracts a user-friendly error message from the DioException.
   String _extractErrorMessage(DioException e) {
     if (e.response?.data is Map<String, dynamic>) {

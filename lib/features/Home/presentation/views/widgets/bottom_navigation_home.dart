@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:quran_app/features/Home/presentation/views/screens/home_screen_version2.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/qibla_compass.dart';
+import 'package:quran_app/features/more/presentation/views/screens/more_screen_categories.dart';
 
 import '../../../../Hadith/presentation/views/screens/hadith_screen.dart';
 import '../../../../quran/presentation/views/quran_screen.dart';
@@ -23,8 +24,7 @@ class _BottomNavigationHomeState extends State<BottomNavigationHome> {
     HomeScreenVersion2(),
     QiblaCompass(),
     QuranScreen(),
-    HomeScreen(),
-    HadithScreen(),
+     MoreScreenCategories(),
   ];
 
   @override
@@ -39,8 +39,8 @@ class _BottomNavigationHomeState extends State<BottomNavigationHome> {
           Icon(Icons.home, size: 26, color: Colors.white),
           Icon( FlutterIslamicIcons.qibla2, size: 26, color: Colors.white),
           Icon( FlutterIslamicIcons.quran2, size: 26, color: Colors.white),
-          Icon( FlutterIslamicIcons.prayer, size: 26, color: Colors.white),
-          Icon(Icons.mode, size: 26, color: Colors.white),
+
+          Icon(Icons.category_rounded, size: 26, color: Colors.white),
         ],
         onTap: (index) {
           setState(() {
