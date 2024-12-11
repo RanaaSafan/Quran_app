@@ -5,7 +5,7 @@ import '../../../../core/errors/failures.dart';
 import '../../../../core/functions/api_service.dart';
 import '../models/data.dart';
 import '../models/model_edition_surah/quran_edition.dart';
-import '../models/model_surah_names/surah.dart';
+
 import '../models/model_surah_names/surah_datas.dart';
 
 
@@ -45,6 +45,8 @@ class RepoSurahImpl extends RepoSurah {
       return left(ServerFailure(e.toString()));
     }
   }
+
+
 
   @override
   Future<Either<Failure, Data>> FetchSurahAudio(int value,String name) async {

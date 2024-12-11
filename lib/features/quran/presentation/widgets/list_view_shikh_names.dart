@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran_app/core/functions/api_service.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
-import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart';
+
 import 'package:quran_app/features/quran/presentation/widgets/shikh_names.dart';
 import '../controller/shikh_cubit.dart';
 import '../controller/shikh_state.dart';
-import '../controller/surah_state.dart';
-import 'container_surah.dart';
 
 class ListViewShikhNames extends StatefulWidget {
   const ListViewShikhNames({super.key});

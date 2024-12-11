@@ -1,7 +1,7 @@
-import '../../data/models/data.dart';
+import '../../../data/models/data.dart';
 
 
-abstract class SurahAudioState {}
+ class SurahAudioState {}
 
 class SurahAudioLoading extends SurahAudioState {}
 

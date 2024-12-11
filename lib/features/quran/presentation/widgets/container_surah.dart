@@ -2,11 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:quran_app/features/quran/data/models/model_edition_surah/quran_edition.dart';
+import 'package:quran_app/features/quran/presentation/widgets/ayahs_surah.dart';
 import 'package:quran_app/features/quran/presentation/widgets/surah_detail_screen.dart';
 import '../../../../core/functions/api_service.dart';
 
 import '../../data/models/model_surah_names/surah_datas.dart';
 import '../../data/repo/Repo_surah_impl.dart';
+import '../controller/surah_audio/surahAudio_cubit.dart';
 
 class ContainerSurah extends StatefulWidget {
   const ContainerSurah({super.key, required this.data, required this.quran});
@@ -126,12 +128,12 @@ class _ContainerSurahState extends State<ContainerSurah> {
                   padding: const EdgeInsets.all(8.0),
                   child: InkWell(
                     onTap: (){
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => SurahDetailsScreen(surahData: widget.data),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AyahsSurah(number: widget.data.number, name: widget.data.name),
+                        ),
+                      );
                     },
                     child: Text(
                       widget.data.name,

@@ -1,7 +1,3 @@
-
-
-
-
 import '../../data/models/model_surah_names/surah_datas.dart';
 
 class SurahState{}

@@ -6,16 +6,19 @@ import 'package:quran_app/features/Home/presentation/views/widgets/bottom_naviga
 import 'package:quran_app/features/more/data/repo/repo_asmaahusna_impl.dart';
 import 'package:quran_app/features/more/presentation/controller/asmaa_allah_cubit.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
+
 import 'package:quran_app/features/quran/presentation/controller/shikh_cubit.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart'; // Import your Cubit
 
 import 'core/functions/api_service.dart';
-import 'core/utils/router_config.dart';
+
 import 'features/Hadith/data/Repo/repo_hadith_impl.dart';
 import 'features/Hadith/presentation/controller/hadith_cubit.dart';
 
 import 'features/Hadith/presentation/controller/hadith_sheikh_cubit.dart';
 import 'features/Home/data/Repo/prayer_repo_impl.dart';
+
+import 'features/quran/presentation/controller/surah_audio/surahAudio_cubit.dart';
 
 
 void main() {
@@ -53,54 +56,16 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               AsmaaAllahCubit(RepoAsmaahusnaImpl(apiservice: ApiService(dio: Dio()))),
         ),
+        BlocProvider(
+          create: (context) =>
+              SurahaudioCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))),
+        ),
+
       ],
       child:  MaterialApp(
         home: BottomNavigationHome(),
       ),
-      // child: MaterialApp.router(
-      //   theme: ThemeData(
-      //     brightness: Brightness.light,
-      //     useMaterial3: true,
-      //     primaryColor: const Color(0xFF35C2C1),
-      //     textTheme: Typography.blackCupertino,
-      //   ),
-      //   darkTheme: ThemeData.dark(useMaterial3: true),
-      //   themeMode: ThemeMode.system,
-      //   debugShowCheckedModeBanner: false,
-      //   routeInformationParser: router.routeInformationParser,
-      //   routeInformationProvider: router.routeInformationProvider,
-      //   routerDelegate: router.routerDelegate,
-      // ),
+
     );
   }
 }
-// import 'package:flutter/material.dart';
-// import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
-// import 'core/utils/router_config.dart';
-// import 'features/splash/presentation/views/screens/onboarding_screen.dart';
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp.router(
-//       theme: ThemeData(
-//         brightness: Brightness.light,
-//         useMaterial3: true,
-//         primaryColor: const Color(0xFF35C2C1),
-//         textTheme: Typography.blackCupertino,
-//       ),
-//       darkTheme: ThemeData.dark(useMaterial3: true),
-//       themeMode: ThemeMode.system,
-//       debugShowCheckedModeBanner: false,
-//       routeInformationParser: router.routeInformationParser,
-//       routeInformationProvider: router.routeInformationProvider,
-//       routerDelegate: router.routerDelegate,
-//     );
-//   }
-// }

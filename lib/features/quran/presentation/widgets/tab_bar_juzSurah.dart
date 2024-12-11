@@ -39,6 +39,7 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
     return Scaffold(
       backgroundColor: backgroundColor,
       body: NestedScrollView(
+        physics: NeverScrollableScrollPhysics(), // تعطيل السحب
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             const ContainerAppbar(),
@@ -85,6 +86,7 @@ class _TabBarJuzsurahState extends State<TabBarJuzsurah> with SingleTickerProvid
         },
         body: TabBarView(
           controller: _tabController,
+          physics: NeverScrollableScrollPhysics(), // تعطيل السحب
           children: [
              ListViewJuz(),
             ListViewSurah(quran: widget.quran), // Pass the quran to ListViewSurah
