@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/onboarding_data.dart';
 import '../../widgets/onboarding_widget.dart';
 
 

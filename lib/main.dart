@@ -11,8 +11,7 @@ import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';
 import 'package:quran_app/features/quran/presentation/controller/shikh_cubit.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_cubit.dart'; // Import your Cubit
 
-import 'core/functions/api_service.dart';
-
+import 'core/utils/router_config.dart';
 import 'features/Hadith/data/Repo/repo_hadith_impl.dart';
 import 'features/Hadith/presentation/controller/hadith_cubit.dart';
 
@@ -67,8 +66,12 @@ class MyApp extends StatelessWidget {
         ),
 
       ],
-      child:  MaterialApp(
-        home: BottomNavigationHome(),
+      child:  MaterialApp.router(
+          routerConfig: router, // هذا هو المكان الذي ستقوم فيه بتحديد الراوتر
+          title: 'Quran App',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
       ),
 
     );

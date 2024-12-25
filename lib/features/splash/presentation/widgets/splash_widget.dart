@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/authentication/presentation/views/screens/login_page.dart';
-import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
 
-import '../../../Home/presentation/views/screens/home_screen.dart';
+import '../views/screens/onboarding_screen.dart';
 
 
 class SplashWidget extends StatefulWidget {
@@ -30,9 +28,9 @@ class _SplashWidgetState extends State<SplashWidget> {
 
   void _navigateToHome() async {
     await Future.delayed(Duration(seconds: 3), () {});
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => TabBarSignLogin()),
+      MaterialPageRoute(builder: (context) => OnboardingScreen()),
     );
   }
 

@@ -3,13 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 import 'package:quran_app/features/splash/presentation/views/screens/splash_screen.dart';
-import 'package:quran_app/features/splash/presentation/widgets/onboarding_widget.dart';
-
 import '../../features/Home/presentation/views/screens/home_screen.dart';
-import '../../features/Home/presentation/views/widgets/container_counter_tasbeeh.dart';
 import '../../features/Home/presentation/views/widgets/list_tasbeeh_container_dhikr.dart';
 import '../../features/Home/presentation/views/widgets/tasbeeh_conatiner_dhikr.dart';
-import '../../features/authentication/presentation/views/screens/authentication_ui.dart';
 import '../../features/authentication/presentation/views/screens/forget_password_page.dart';
 import '../../features/authentication/presentation/views/screens/login_page.dart';
 import '../../features/authentication/presentation/views/screens/new_password_page.dart';
@@ -21,7 +17,7 @@ import 'app_router.dart';
 
 final router = GoRouter(
     //initialLocation: Routers.OnboardingScreen.path,
-   // initialLocation: Routers.BottomNavigationHome.path,
+    initialLocation: Routers.SplashScreen.path,
     routes: [
 
   // GoRoute(
