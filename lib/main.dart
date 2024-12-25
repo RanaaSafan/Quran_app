@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Import for BlocProvider
+import 'package:quran_app/core/utils/network.dart';
 import 'package:quran_app/features/Home/presentation/controller/prayer_cubit.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 import 'package:quran_app/features/more/data/repo/repo_asmaahusna_impl.dart';
@@ -23,6 +24,10 @@ import 'features/quran/presentation/controller/surah_audio/surahAudio_cubit.dart
 
 void main() {
   runApp(const MyApp());
+  _initializeApp();
+}
+Future<void> _initializeApp() async {
+  await setupServiceLocator();
 }
 
 class MyApp extends StatelessWidget {
@@ -34,31 +39,31 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-              SurahCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))),
+              SurahCubit(getIt.get<RepoSurahImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              HadithCubit(RepoHadithImpl(apiservice: ApiService(dio: Dio()))),
+              HadithCubit(getIt.get<RepoHadithImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              HadithSheikhCubit(RepoHadithImpl(apiservice: ApiService(dio: Dio()))),
+              HadithSheikhCubit(getIt.get<RepoHadithImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              PrayerCubit(PrayerRepoImpl(apiservice: ApiService(dio: Dio()))),
+              PrayerCubit(getIt.get<PrayerRepoImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              ShikhCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))),
+              ShikhCubit(getIt.get<RepoSurahImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              AsmaaAllahCubit(RepoAsmaahusnaImpl(apiservice: ApiService(dio: Dio()))),
+              AsmaaAllahCubit(getIt.get<RepoAsmaahusnaImpl>()),
         ),
         BlocProvider(
           create: (context) =>
-              SurahaudioCubit(RepoSurahImpl(apiservice: ApiService(dio: Dio()))),
+              SurahaudioCubit(getIt.get<RepoSurahImpl>()),
         ),
 
       ],

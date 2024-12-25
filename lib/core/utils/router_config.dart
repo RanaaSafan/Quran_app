@@ -21,7 +21,7 @@ import 'app_router.dart';
 
 final router = GoRouter(
     //initialLocation: Routers.OnboardingScreen.path,
-    initialLocation: Routers.BottomNavigationHome.path,
+   // initialLocation: Routers.BottomNavigationHome.path,
     routes: [
 
   // GoRoute(
@@ -31,6 +31,13 @@ final router = GoRouter(
   //     return const MaterialPage(child: AuthenticationUI());
   //   },
   // ),
+      GoRoute(
+        path: Routers.SplashScreen.path,
+        name: Routers.SplashScreen.name,
+        pageBuilder: (context, state) {
+          return  MaterialPage(child: SplashScreen());
+        },
+      ),
   GoRoute(
     path: Routers.OnboardingScreen.path,
     name: Routers.OnboardingScreen.name,
@@ -38,13 +45,7 @@ final router = GoRouter(
       return  MaterialPage(child: OnboardingScreen());
     },
   ),
-  GoRoute(
-    path: Routers.SplashScreen.path,
-    name: Routers.SplashScreen.name,
-    pageBuilder: (context, state) {
-      return  MaterialPage(child: SplashScreen());
-    },
-  ),
+
   GoRoute(
     path: Routers.loginpage.path,
     name: Routers.loginpage.name,
