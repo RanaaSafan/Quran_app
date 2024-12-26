@@ -37,7 +37,7 @@ class Routers {
   AppRouter(name: "/ListTasbeehContainerDhikr", path: "/ListTasbeehContainerDhikr");
 
   static AppRouter MainScreen =
-  AppRouter(name: "/BMainScreen", path: "/MainScreen");
+  AppRouter(name: "/MainScreen", path: "/MainScreen");
 
   static AppRouter DateCalender =
   AppRouter(name: "/DateCalender", path: "/DateCalender");
@@ -51,6 +51,12 @@ class Routers {
 
   static AppRouter QuranScreen =
   AppRouter(name: "/QuranScreen", path: "/QuranScreen");
+
+  static AppRouter TabBarSignLogin =
+  AppRouter(name: "/TabBarSignLogin", path: "/TabBarSignLogin");
+
+  static AppRouter ResponseLogin =
+  AppRouter(name: "/ResponseLogin", path: "/ResponseLogin");
 
 
 

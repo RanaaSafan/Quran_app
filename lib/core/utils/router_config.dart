@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 import 'package:quran_app/features/splash/presentation/views/screens/splash_screen.dart';
 import '../../features/Hadith/presentation/views/screens/hadith_screen.dart';
-import '../../features/Home/presentation/views/screens/home_screen.dart';
+import '../../features/Home/presentation/views/screens/main_screen.dart';
 import '../../features/Home/presentation/views/widgets/date_calender.dart';
 import '../../features/Home/presentation/views/widgets/list_container_prayer.dart';
 import '../../features/Home/presentation/views/widgets/list_tasbeeh_container_dhikr.dart';
@@ -15,6 +14,8 @@ import '../../features/authentication/presentation/views/screens/new_password_pa
 import '../../features/authentication/presentation/views/screens/otp_vertification_page.dart';
 import '../../features/authentication/presentation/views/screens/password_change_page.dart';
 import '../../features/authentication/presentation/views/screens/signUp_page.dart';
+import '../../features/authentication/presentation/views/widgets/response_login.dart';
+import '../../features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
 import '../../features/quran/presentation/views/quran_screen.dart';
 import '../../features/splash/presentation/views/screens/onboarding_screen.dart';
 import 'app_router.dart';
@@ -23,14 +24,6 @@ final router = GoRouter(
     //initialLocation: Routers.OnboardingScreen.path,
     initialLocation: Routers.SplashScreen.path,
     routes: [
-
-  // GoRoute(
-  //   path: Routers.authenticationpage.path,
-  //   name: Routers.authenticationpage.name,
-  //   pageBuilder: (context, state) {
-  //     return const MaterialPage(child: AuthenticationUI());
-  //   },
-  // ),
       GoRoute(
         path: Routers.SplashScreen.path,
         name: Routers.SplashScreen.name,
@@ -57,7 +50,7 @@ final router = GoRouter(
     path: Routers.MainScreen.path,
     name: Routers.MainScreen.name,
     pageBuilder: (context, state) {
-      return const MaterialPage(child: BottomNavigationHome());
+      return const MaterialPage(child: MainScreen());
     },
   ),
 
@@ -139,6 +132,21 @@ final router = GoRouter(
         name: Routers.QuranScreen.name,
         pageBuilder: (context, state) {
           return const MaterialPage(child: QuranScreen());
+        },
+      ),
+
+      GoRoute(
+        path: Routers.TabBarSignLogin.path,
+        name: Routers.TabBarSignLogin.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: TabBarSignLogin());
+        },
+      ),
+      GoRoute(
+        path: Routers.ResponseLogin.path,
+        name: Routers.ResponseLogin.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ResponseLogin());
         },
       ),
 

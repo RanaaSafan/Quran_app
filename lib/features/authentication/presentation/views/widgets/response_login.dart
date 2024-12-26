@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/features/Home/presentation/views/screens/main_screen.dart';
-import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
-
-import '../../../../Home/presentation/views/widgets/bottom_navigation_home.dart';
-import '../../../../quran/presentation/views/quran_screen.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../../../../core/utils/app_router.dart';
 class ResponseLogin extends StatefulWidget {
   const ResponseLogin({super.key});
 
@@ -22,10 +18,7 @@ class _ResponseLoginState extends State<ResponseLogin> {
   }
   void _navigateToHome() async {
     await Future.delayed(Duration(seconds: 5), () {});
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => MainScreen()),
-    );
+    GoRouter.of(context).push(Routers.MainScreen.name);
   }
 
 

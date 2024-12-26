@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
-import 'package:quran_app/features/splash/presentation/views/screens/splash_screen.dart';
+import '../../../../core/utils/app_router.dart';
 import '../../data/onboarding_data.dart';
 
 class OnboardingWidget extends StatefulWidget {
@@ -40,7 +41,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         curve: Curves.easeOut,
       );
     } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>TabBarSignLogin()));
+      GoRouter.of(context)
+          .push(Routers.TabBarSignLogin.name);
+
     }
   }
 

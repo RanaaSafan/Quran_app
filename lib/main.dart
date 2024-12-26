@@ -1,9 +1,8 @@
-import 'package:dio/dio.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; // Import for BlocProvider
 import 'package:quran_app/core/utils/network.dart';
 import 'package:quran_app/features/Home/presentation/controller/prayer_cubit.dart';
-import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 import 'package:quran_app/features/more/data/repo/repo_asmaahusna_impl.dart';
 import 'package:quran_app/features/more/presentation/controller/asmaa_allah_cubit.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah_impl.dart';

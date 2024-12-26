@@ -5,9 +5,7 @@ import 'package:quran_app/features/Home/presentation/views/screens/home_screen_v
 import 'package:quran_app/features/Home/presentation/views/widgets/qibla_compass.dart';
 import 'package:quran_app/features/more/presentation/views/screens/more_screen_categories.dart';
 
-import '../../../../Hadith/presentation/views/screens/hadith_screen.dart';
 import '../../../../quran/presentation/views/quran_screen.dart';
-import '../screens/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
