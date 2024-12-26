@@ -14,7 +14,7 @@ class _SleekCircleSliderState extends State<SleekCircleSlider> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-          width: 180, // تحديد العرض الثابت
+          width: 170, // تحديد العرض الثابت
           height: 180, // تحديد الارتفاع الثابت
           child: Material( // استخدام Material لتوفير سطح تأثيرات الحبر
             type: MaterialType.transparency, // جعل Material شفافًا

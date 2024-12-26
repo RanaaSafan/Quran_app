@@ -63,7 +63,7 @@ class _HomeImageState extends State<HomeImage> {
           ),
         ),
         Positioned(
-            right: 20,
+            right: 5,
             bottom: 30,
             child: SleekCircleSlider()),
       ],

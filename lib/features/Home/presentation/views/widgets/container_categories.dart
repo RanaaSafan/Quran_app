@@ -39,33 +39,35 @@ class ContainerCategories extends StatelessWidget {
           }
 
         },
-        child: Column(
-          mainAxisSize: MainAxisSize.min, // <-- Crucial change
-          children: [
-            Container(
-              width: 85,
-              height: 115,
-              decoration: BoxDecoration(
-                color: const Color(0xFF522700),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Center(child: namelogo),
-            ),
-            const SizedBox(height: 8),
-            SizedBox( // <-- Add SizedBox with constraints
-              width: 85, // Match the width of the Container above
-              child: Text(
-                name,
-                style: const TextStyle(
-                  color: Color(0xFFA85000),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+        child: SizedBox(
+          child: Column(
+            mainAxisSize: MainAxisSize.min, // <-- Crucial change
+            children: [
+              Container(
+                width: 85,
+                height: 115,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF522700),
+                  borderRadius: BorderRadius.circular(25),
                 ),
-                textAlign: TextAlign.center, // Center the text
-                overflow: TextOverflow.ellipsis, // Add ellipsis for long text
+                child: Center(child: namelogo),
               ),
-            ),
-          ],
+              const SizedBox(height: 8),
+              SizedBox( // <-- Add SizedBox with constraints
+                width: 85, // Match the width of the Container above
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    color: Color(0xFFA85000),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center, // Center the text
+                  overflow: TextOverflow.ellipsis, // Add ellipsis for long text
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -46,8 +46,8 @@ dependencies:
   curved_navigation_bar:
   sleek_circular_slider:
   step_progress_indicator:
-  geolocator:
-  sensors_plus:
+  geolocator: ^9.0.0
+  sensors_plus: ^3.0.0
   vector_math:
   easy_container:
   get_it:

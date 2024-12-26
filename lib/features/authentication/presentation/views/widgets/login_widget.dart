@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/authentication/presentation/views/widgets/response_login.dart';
 import '../../../../../core/utils/app_router.dart';
-import '../../../../../core/utils/common.dart';
 import 'custom_widget.dart';
 import 'fadeInAnimation.dart';
 
@@ -48,11 +47,9 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   void _login() {
     if (formKey.currentState?.validate() ?? false) {
-      print("Login successful");
-    // GoRouter.of(context).push(Routers..name);
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ResponseLogin()),
+        MaterialPageRoute(builder: (context) => const ResponseLogin()),
       );
     } else {
       print("Form is not valid");
@@ -61,66 +58,38 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-          padding: const EdgeInsets.all(10.0),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
           child: Form(
             key: formKey,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // FadeInAnimation(
-                  //   delay: 1,
-                  //   child: IconButton(
-                  //     onPressed: () {
-                  //       GoRouter.of(context).pushNamed(Routers.authenticationpage.name);
-                  //     },
-                  //     icon: const Icon(
-                  //       CupertinoIcons.back,
-                  //       size: 35,
-                  //     ),
-                  //   ),
-                  // ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(12.0),
-                  //   child: Column(
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       FadeInAnimation(
-                  //         delay: 1.3,
-                  //         child: Text(
-                  //           "Welcome back! Glad ",
-                  //           style: Common().titelTheme,
-                  //         ),
-                  //       ),
-                  //       FadeInAnimation(
-                  //         delay: 1.6,
-                  //         child: Text(
-                  //           "to see you, Again!",
-                  //           style: Common().titelTheme,
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         FadeInAnimation(
-                            delay: 1.6,
-                            child:Text(" البريد الالكتروني   ",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)
+                          delay: 1.6,
+                          child: const Text(
+                            "البريد الالكتروني",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        const SizedBox(height: 10),
                         FadeInAnimation(
                           delay: 1.9,
                           child: CustomTextFormField(
-                            hinttext: 'اكتب بريدك الالكتروني ',
+                            hinttext: 'اكتب بريدك الالكتروني',
                             obsecuretext: false,
                             controller: emailController,
                             validator: _validateEmail,
@@ -128,16 +97,21 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                         const SizedBox(height: 15),
                         FadeInAnimation(
-                            delay: 2.2,
-                            child:Text(" كلمه المرور  ",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)
+                          delay: 2.2,
+                          child: const Text(
+                            "كلمه المرور",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        const SizedBox(height: 10),
                         FadeInAnimation(
                           delay: 2.5,
                           child: CustomPasswordTextFormField(
-                            hinttext: "ادخل كلمه المرور ",
+                            hinttext: "ادخل كلمه المرور",
                             obsecuretext: true,
                             controller: passwordController,
                             validator: _validatePassword,
@@ -146,36 +120,33 @@ class _LoginWidgetState extends State<LoginWidget> {
                         const SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             FadeInAnimation(
                               delay: 2.8,
                               child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: InkWell(
-                                    onTap: () {
-                                      GoRouter.of(context)
-                                          .pushNamed(Routers.forgetpassword.name);
-                                    },
-                                    child: Text(
-                                      "نسيت كلمه المرور ؟",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: "Urbanist-SemiBold",
-                                      ),
+                                alignment: Alignment.centerRight,
+                                child: InkWell(
+                                  onTap: () {
+                                    GoRouter.of(context)
+                                        .push(Routers.forgetpassword.name);
+                                  },
+                                  child: const Text(
+                                    "نسيت كلمه المرور؟",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w700,
                                     ),
-                                  )
+                                  ),
+                                ),
                               ),
                             ),
                           ],
                         ),
-              
                         const SizedBox(height: 10),
                         FadeInAnimation(
                           delay: 3.1,
                           child: CustomElevatedButton(
-                            message: "تسجيل الدخول ",
+                            message: "تسجيل الدخول",
                             onPressed: _login,
                           ),
                         ),
@@ -192,29 +163,43 @@ class _LoginWidgetState extends State<LoginWidget> {
                         children: [
                           FadeInAnimation(
                             delay: 3.4,
-                            child: Text(
-                              "خيارات تسجيل الدخول الاخري ",
-                              style: Common().semiboldblack,
+                            child: const Text(
+                              "خيارات تسجيل الدخول الاخري",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                           const SizedBox(height: 15),
                           FadeInAnimation(
                             delay: 3.7,
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 10, bottom: 10, right: 30, left: 30),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(height: 50, width: 50, "assets/facebook.jpg"),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Image.asset(height: 50, width: 50, "assets/google.jpg"),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Image.asset(height: 50, width: 50, "assets/iphone.jpg"),
-                                ],
+                              padding: const EdgeInsets.symmetric(horizontal: 30),
+                              child: SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      "assets/facebook.jpg",
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Image.asset(
+                                      "assets/google.jpg",
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Image.asset(
+                                      "assets/iphone.jpg",
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -222,28 +207,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                     ),
                   ),
-                  // FadeInAnimation(
-                  //   delay: 2.8,
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.only(left: 50),
-                  //     child: Row(
-                  //       children: [
-                  //         Text("Don’t have an account?", style: Common().hinttext),
-                  //         TextButton(
-                  //           onPressed: () {
-                  //             GoRouter.of(context).pushNamed(Routers.signuppage.name);
-                  //           },
-                  //           child: Text("Register Now", style: Common().mediumTheme),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
           ),
-      
+        ),
+      ),
     );
   }
 }

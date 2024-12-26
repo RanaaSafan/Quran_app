@@ -185,30 +185,33 @@ class _SignupWidegtState extends State<SignupWidegt> {
                   FadeInAnimation(
                     delay: 3.4,
                     child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                      children:[RichText(
-                        text: TextSpan(
-                          text: '', // لا تحتاج لنص هنا لأننا سنستخدم children لإضافة الكلمات
-                          children: [
-                            TextSpan(
-                              text: 'أوافق علي ',
-                              style: TextStyle(color: Colors.grey, fontSize: 15),
-                            ),
-                            TextSpan(
-                              text: 'شروط خدمة ',
-                              style: TextStyle(color: Color(0xFFA85000), fontSize: 15),
-                            ),
-                            TextSpan(
-                              text: ' المنصة و',
-                              style: TextStyle(color: Colors.grey, fontSize: 15),
-                            ),
-                            TextSpan(
-                              text: 'سياسة الخصوصية ',
-                              style: TextStyle(color: Color(0xFFA85000), fontSize: 15),
-                            ),
-                          ],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                      children:[
+                        Expanded(
+                          child: RichText(
+                          text: TextSpan(
+                            text: '', // لا تحتاج لنص هنا لأننا سنستخدم children لإضافة الكلمات
+                            children: [
+                              TextSpan(
+                                text: 'أوافق علي ',
+                                style: TextStyle(color: Colors.grey, fontSize: 15),
+                              ),
+                              TextSpan(
+                                text: 'شروط خدمة ',
+                                style: TextStyle(color: Color(0xFFA85000), fontSize: 15),
+                              ),
+                              TextSpan(
+                                text: ' المنصة و',
+                                style: TextStyle(color: Colors.grey, fontSize: 15),
+                              ),
+                              TextSpan(
+                                text: 'سياسة الخصوصية ',
+                                style: TextStyle(color: Color(0xFFA85000), fontSize: 15),
+                              ),
+                            ],
+                          ),
+                                                    ),
                         ),
-                      ),
 
                        Theme(
                         data: Theme.of(context).copyWith(
@@ -226,8 +229,8 @@ class _SignupWidegtState extends State<SignupWidegt> {
                             });
                           },
                         ),
-                      ),
-          ]
+                                               ),
+                              ]
                     ),
                   ),
 

@@ -31,18 +31,18 @@ class _HadithContainerState extends State<HadithContainer> {
             top: 15,
             left: 20,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               child: Image.network(
                 "https://img.pikbest.com/origin/09/19/98/717pIkbEsTKBr.jpg!sw800",
-                width: 190,
-                height: 190,
+                width: 125,
+                height: 132,
                 fit: BoxFit.cover,
               ),
             ),
           ),
 
           Positioned(
-            bottom: 20,
+            bottom: 3,
             left: 20,
             right: 20,
             child: Row(
@@ -51,9 +51,10 @@ class _HadithContainerState extends State<HadithContainer> {
                 Expanded(
                   child: Text(
                     widget.name,
-                    style: TextStyle(color: Colors.white, fontSize: 25,overflow: TextOverflow.ellipsis,),
+                    style: TextStyle(color: Colors.white, fontSize: 20,overflow: TextOverflow.ellipsis,),
                   ),
                 ),
+
                 IconButton(
                   onPressed: () {},
                   icon: Icon(

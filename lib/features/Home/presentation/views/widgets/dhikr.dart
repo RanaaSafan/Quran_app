@@ -155,7 +155,7 @@ class _DhikrState extends State<Dhikr> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
+                   // SizedBox(height: 6),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.end,

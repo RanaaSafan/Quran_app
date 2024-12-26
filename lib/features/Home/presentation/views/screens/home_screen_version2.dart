@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/features/Home/presentation/views/widgets/container_ayah_day.dart';
+import 'package:quran_app/features/Home/presentation/views/widgets/container_hadith_day.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/home_image.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/list_container_categories.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/row_logo.dart';
@@ -26,6 +28,8 @@ class HomeScreenVersion2 extends StatelessWidget {
             height: 10,
           ),
           ListContainerCategories(),
+          ContainerAyahDay(),
+          ContainerHadithDay(),
         ],
       ),
     );

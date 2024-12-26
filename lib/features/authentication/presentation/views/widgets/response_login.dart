@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
 
+import '../../../../Home/presentation/views/widgets/bottom_navigation_home.dart';
 import '../../../../quran/presentation/views/quran_screen.dart';
 
 class ResponseLogin extends StatefulWidget {
@@ -22,7 +23,7 @@ class _ResponseLoginState extends State<ResponseLogin> {
     await Future.delayed(Duration(seconds: 5), () {});
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => QuranScreen()),
+      MaterialPageRoute(builder: (context) => BottomNavigationHome()),
     );
   }
 

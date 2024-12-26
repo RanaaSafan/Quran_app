@@ -10,33 +10,23 @@ class QiblaCompass extends StatefulWidget {
   _QiblaCompassState createState() => _QiblaCompassState();
 }
 
-class _QiblaCompassState extends State<QiblaCompass>
-    with SingleTickerProviderStateMixin {
-  double _qiblaDirection = 0; // Qibla direction in degrees
-  double _deviceHeading = 0; // Device heading in degrees
-  bool _isLocationError = false; // Location error state
-  late AnimationController _animationController;
+class _QiblaCompassState extends State<QiblaCompass> {
+  double _qiblaDirection = 0; // اتجاه القبلة
+  double _deviceHeading = 0; // اتجاه الجهاز
+  bool _isLocationError = false; // حالة الخطأ في الموقع
 
   @override
   void initState() {
     super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 500),
-    );
     _initializeCompass();
   }
 
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  // Initialize location and compass listeners
   Future<void> _initializeCompass() async {
     try {
+      // الحصول على الموقع الحالي
       await _getCurrentPosition();
+
+      // الاستماع إلى حساسات البوصلة
       _listenToCompass();
     } catch (e) {
       setState(() {
@@ -45,24 +35,29 @@ class _QiblaCompassState extends State<QiblaCompass>
     }
   }
 
-  // Get the current GPS position
   Future<void> _getCurrentPosition() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) throw Exception("Location services are disabled.");
+    if (!serviceEnabled) {
+      throw Exception("خدمات الموقع غير مفعلة.");
+    }
 
     LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        throw Exception("Location permission denied.");
+        throw Exception("تم رفض إذن الموقع.");
       }
     }
 
+    if (permission == LocationPermission.deniedForever) {
+      throw Exception("تم رفض إذن الموقع بشكل دائم.");
+    }
+
+    // الحصول على الموقع الحالي
     Position position = await Geolocator.getCurrentPosition();
     _calculateQiblaDirection(position.latitude, position.longitude);
   }
 
-  // Calculate Qibla direction based on current latitude and longitude
   void _calculateQiblaDirection(double latitude, double longitude) {
     const double kaabaLatitude = 21.4225;
     const double kaabaLongitude = 39.8262;
@@ -80,7 +75,6 @@ class _QiblaCompassState extends State<QiblaCompass>
     });
   }
 
-  // Listen to the device's compass sensor
   void _listenToCompass() {
     magnetometerEvents.listen((MagnetometerEvent event) {
       double heading = atan2(event.y, event.x) * (180 / pi);
@@ -99,35 +93,24 @@ class _QiblaCompassState extends State<QiblaCompass>
         title: Text(
           "القبلة",
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.orange,
           ),
         ),
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
       ),
-
       body: _isLocationError
           ? _buildErrorView()
           : _buildCompassView(rotationAngle),
     );
   }
 
-  // Build the compass view
   Widget _buildCompassView(double rotationAngle) {
-    // final directions = {
-    //   'N': Alignment.topCenter,
-    //   'S': Alignment.bottomCenter,
-    //   'E': Alignment.centerRight,
-    //   'W': Alignment.centerLeft,
-    // };
-
     return Container(
-      decoration: BoxDecoration(
-          color:Colors.white,
-      ),
+      color: Colors.white,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +118,7 @@ class _QiblaCompassState extends State<QiblaCompass>
             Stack(
               alignment: Alignment.center,
               children: [
-                // Compass circle
+                // الدائرة الخارجية للبوصلة
                 Container(
                   width: 320,
                   height: 320,
@@ -156,60 +139,13 @@ class _QiblaCompassState extends State<QiblaCompass>
                   ),
                 ),
 
-                // Directions (N, S, E, W)
-                // for (var entry in directions.entries)
-                //   Align(
-                //     alignment: entry.value,
-                //     child: Text(
-                //       entry.key,
-                //       style: TextStyle(
-                //         fontSize: 22,
-                //         fontWeight: FontWeight.bold,
-                //         color: Color(0xFFA85000),
-                //       ),
-                //     ),
-                //   ),
+                // النقاط الأساسية (الشمال، الجنوب، الشرق، الغرب)
+                Positioned(top: 10, child: _buildDirectionText('N')),
+                Positioned(bottom: 10, child: _buildDirectionText('S')),
+                Positioned(right: 10, child: _buildDirectionText('E')),
+                Positioned(left: 10, child: _buildDirectionText('W')),
 
-                Positioned(
-                  top: 10,
-                  child: _buildDirectionText('N'),
-                ),
-                Positioned(
-                  bottom: 10,
-                  child: _buildDirectionText('S'),
-                ),
-                Positioned(
-                  right: 10,
-                  child: _buildDirectionText('E'),
-                ),
-                Positioned(
-                  left: 10,
-                  child: _buildDirectionText('W'),
-                ),
-
-                // Diagonal directions (NE, NW, SE, SW) for enhancement
-                Positioned(
-                  top: 40,
-                  right: 40,
-                  child: _buildDirectionText('NE', fontSize: 14),
-                ),
-                Positioned(
-                  top: 40,
-                  left: 40,
-                  child: _buildDirectionText('NW', fontSize: 14),
-                ),
-                Positioned(
-                  bottom: 40,
-                  right: 40,
-                  child: _buildDirectionText('SE', fontSize: 14),
-                ),
-                Positioned(
-                  bottom: 40,
-                  left: 40,
-                  child: _buildDirectionText('SW', fontSize: 14),
-                ),
-
-                // Rotating Kaaba icon
+                // سهم يشير للقبلة
                 Transform.rotate(
                   angle: vector.radians(rotationAngle),
                   child: Icon(
@@ -218,25 +154,15 @@ class _QiblaCompassState extends State<QiblaCompass>
                     color: Color(0xFFA85000),
                   ),
                 ),
-
-                // Heading indicator
-                Transform.rotate(
-                  angle: vector.radians(-_deviceHeading),
-                  // child: Container(
-                  //   width: 2,
-                  //   height: 150,
-                  //   color: Colors.red,
-                  // ),
-                ),
               ],
             ),
             SizedBox(height: 20),
             Text(
-              'Qibla: ${_qiblaDirection.toStringAsFixed(2)}°',
+              'اتجاه القبلة: ${_qiblaDirection.toStringAsFixed(2)}°',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             Text(
-              'Heading: ${_deviceHeading.toStringAsFixed(2)}°',
+              'اتجاه الجهاز: ${_deviceHeading.toStringAsFixed(2)}°',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ],
@@ -245,7 +171,6 @@ class _QiblaCompassState extends State<QiblaCompass>
     );
   }
 
-  // Build the error view
   Widget _buildErrorView() {
     return Center(
       child: Column(
@@ -260,13 +185,13 @@ class _QiblaCompassState extends State<QiblaCompass>
           ),
           SizedBox(height: 20),
           ElevatedButton(
+            onPressed: _initializeCompass,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFA85000),
+              backgroundColor: Colors.orange,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            onPressed: _initializeCompass,
             child: Text(
               'إعادة المحاولة',
               style: TextStyle(fontSize: 16),
@@ -276,16 +201,14 @@ class _QiblaCompassState extends State<QiblaCompass>
       ),
     );
   }
+
   Widget _buildDirectionText(String direction, {double fontSize = 20}) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Text(
-        direction,
-        style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: FontWeight.bold,
-          color: Color(0xFFA85000),
-        ),
+    return Text(
+      direction,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: FontWeight.bold,
+        color: Color(0xFFA85000),
       ),
     );
   }
