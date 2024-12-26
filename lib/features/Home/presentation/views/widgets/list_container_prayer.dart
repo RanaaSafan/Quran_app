@@ -33,7 +33,7 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
   @override
   void initState() {
     super.initState();
-    // استخدم التاريخ الحالي إذا لم يكن التاريخ محدد
+
     date = DateTime.now().toIso8601String();
     context.read<PrayerCubit>().getPrayer(date);
   }
@@ -54,7 +54,7 @@ class _ListContainerPrayerState extends State<ListContainerPrayer> {
               scrollDirection: Axis.vertical,
               itemCount: Data.length, // Number of prayer types
               itemBuilder: (BuildContext context, int index) {
-                // تحديد الوقت لكل صلاة بناءً على الحالة المستقبلة
+
                 String time;
                 switch (index) {
                   case 0:

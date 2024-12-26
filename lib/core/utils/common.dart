@@ -16,6 +16,17 @@ class Common {
       fontFamily: "Urbanist-Bold",
       fontWeight: FontWeight.bold,
       color: Color.fromARGB(255, 72, 151, 151));
+
+  TextStyle Login = const TextStyle(
+      fontSize: 15,
+      fontFamily: "Urbanist-Bold",
+      fontWeight: FontWeight.bold,
+      color:Colors.black,
+
+  );
+
+
+
   TextStyle mediumThemeblack = const TextStyle(
       fontSize: 16,
       fontFamily: "Urbanist-Bold",
@@ -32,4 +43,11 @@ class Common {
   );
   TextStyle hinttext = const TextStyle(
       fontSize: 15, fontFamily: 'Urbanist-Medium', color: Color(0xFF8391A1));
+
+  TextStyle ContainerAyahAndHadith=const TextStyle(
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: FontWeight.w600, // Slightly lighter weight for a modern look
+    height: 1.5, // Adjust line height for better readability
+  );
 }

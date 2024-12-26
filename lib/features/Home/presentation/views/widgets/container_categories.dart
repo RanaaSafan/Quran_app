@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/Hadith/presentation/views/screens/hadith_screen.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/date_calender.dart';
 import 'package:quran_app/features/quran/presentation/views/quran_screen.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import 'list_container_prayer.dart';
 import 'list_tasbeeh_container_dhikr.dart';
 
@@ -21,19 +23,19 @@ class ContainerCategories extends StatelessWidget {
         onTap: () {
           switch(name){
             case "التقويم":
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>DateCalender()));
+              GoRouter.of(context).push(Routers.DateCalender.name);
               break;
             case "الصلاه":
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ListContainerPrayer()));
+              GoRouter.of(context).push(Routers.ListContainerPrayer.name);
               break;
             case "الحديث":
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>HadithScreen()));
+              GoRouter.of(context).push(Routers.HadithScreen.name);
               break;
             case "القرآن":
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>QuranScreen()));
+              GoRouter.of(context).push(Routers.QuranScreen.name);
               break;
             case "التسبيح":
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ListTasbeehContainerDhikr()));
+              GoRouter.of(context).push(Routers.ListTasbeehContainerDhikr.name);
               break;
 
           }

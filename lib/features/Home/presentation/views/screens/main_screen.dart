@@ -9,22 +9,21 @@ import '../../../../Hadith/presentation/views/screens/hadith_screen.dart';
 import '../../../../quran/presentation/views/quran_screen.dart';
 import '../screens/home_screen.dart';
 
-class BottomNavigationHome extends StatefulWidget {
-  const BottomNavigationHome({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<BottomNavigationHome> createState() => _BottomNavigationHomeState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _BottomNavigationHomeState extends State<BottomNavigationHome> {
+class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
   List<Widget> screens = [
-    //QuranScreen(),
     HomeScreenVersion2(),
     QiblaCompass(),
     QuranScreen(),
-     MoreScreenCategories(),
+    MoreScreenCategories(),
   ];
 
   @override

@@ -88,17 +88,6 @@ class _SignupWidegtState extends State<SignupWidegt> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // FadeInAnimation(
-              //   delay: 0.6,
-              //   child: IconButton(
-              //       onPressed: () {
-              //         GoRouter.of(context).pop();
-              //       },
-              //       icon: const Icon(
-              //         CupertinoIcons.back,
-              //         size: 35,
-              //       )),
-              // ),
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Column(
@@ -109,10 +98,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
                         delay: 1.6,
                         child: Text(
                           "البريد الالكتروني ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                          style:Common().Login,
                         )),
                     SizedBox(
                       height: 10,
@@ -127,24 +113,12 @@ class _SignupWidegtState extends State<SignupWidegt> {
                       ),
                     ),
 
-                    // FadeInAnimation(
-                    //   delay: 1.8,
-                    //   child: CustomTextFormField(
-                    //     hinttext: 'Enter your Email',
-                    //     obsecuretext: false,
-                    //     controller: emailController,
-                    //     validator: _validateEmail,
-                    //   ),
-                    // ),
                     const SizedBox(height: 15),
                     FadeInAnimation(
                         delay: 2.2,
                         child: Text(
                           " كلمه المرور  ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                          style: Common().Login,
                         )),
                     SizedBox(
                       height: 10,
@@ -163,10 +137,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
                         delay: 2.8,
                         child: Text(
                           " تأكيد كلمه المرور  ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                          style:Common().Login,
                         )),
                     SizedBox(
                       height: 10,

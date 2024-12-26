@@ -8,7 +8,7 @@ class AppRouter {
 }
 
 class Routers {
-  //static AppRouter authenticationpage = AppRouter(name: "/", path: "/");
+
   static AppRouter OnboardingScreen =
   AppRouter(name: "/OnboardingScreen", path: "/OnboardingScreen");
   static AppRouter SplashScreen =
@@ -36,8 +36,21 @@ class Routers {
   static AppRouter ListTasbeehContainerDhikr =
   AppRouter(name: "/ListTasbeehContainerDhikr", path: "/ListTasbeehContainerDhikr");
 
-  static AppRouter BottomNavigationHome =
-  AppRouter(name: "/BottomNavigationHome", path: "/BottomNavigationHome");
+  static AppRouter MainScreen =
+  AppRouter(name: "/BMainScreen", path: "/MainScreen");
+
+  static AppRouter DateCalender =
+  AppRouter(name: "/DateCalender", path: "/DateCalender");
+
+
+  static AppRouter ListContainerPrayer =
+  AppRouter(name: "/ListContainerPrayer", path: "/ListContainerPrayer");
+
+  static AppRouter HadithScreen =
+  AppRouter(name: "/HadithScreen", path: "/HadithScreen");
+
+  static AppRouter QuranScreen =
+  AppRouter(name: "/QuranScreen", path: "/QuranScreen");
 
 
 

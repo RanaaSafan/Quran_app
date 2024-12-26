@@ -27,8 +27,8 @@ class _ListTasbeehContainerDhikrState extends State<ListTasbeehContainerDhikr> {
     return Scaffold(
       appBar: AppBar(
         title: Text("اذكار",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Colors.white),), // عنوان شريط التطبيق
-        backgroundColor: Color(0xFFd84315).withOpacity(0.9), // لون خلفية شريط التطبيق
-        centerTitle: true, // لوضع العنوان في المنتصف
+        backgroundColor: Color(0xFFd84315).withOpacity(0.9),
+        centerTitle: true,
         iconTheme: IconThemeData(
             size: 30,
                 color: Colors.white,

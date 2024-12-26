@@ -32,7 +32,7 @@ class _DateCalenderState extends State<DateCalender> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Color(0xFFbf360c), // Calendar container background color
+          color: Color(0xFFbf360c),
         ),
         child: TableCalendar(
           firstDay: DateTime.utc(2020, 1, 1),
@@ -49,7 +49,7 @@ class _DateCalenderState extends State<DateCalender> {
             context.read<PrayerCubit>().getPrayer(_selectedDay.toIso8601String());
           },
           calendarStyle: CalendarStyle(
-            defaultTextStyle: TextStyle(fontSize: 18, color: Colors.white), // Text style for calendar days
+            defaultTextStyle: TextStyle(fontSize: 18, color: Colors.white),
             todayDecoration: BoxDecoration(
               color: Colors.blue,
               shape: BoxShape.circle,

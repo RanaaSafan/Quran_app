@@ -14,7 +14,7 @@ Future<void> setupServiceLocator() async {
   // Dio dio = await ApiService.getInstance();
   // getIt.registerSingleton<ApiService>(ApiService(dio));
   //repos
-  Dio dio = Dio(); // إنشاء Dio مباشرة
+  Dio dio = Dio();
   getIt.registerSingleton<ApiService>(ApiService(dio: dio));
   
   getIt.registerSingleton<RepoSurahImpl>(RepoSurahImpl(apiservice: getIt.get<ApiService>()));

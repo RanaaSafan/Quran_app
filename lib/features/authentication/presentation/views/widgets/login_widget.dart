@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/authentication/presentation/views/widgets/response_login.dart';
 import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/common.dart';
 import 'custom_widget.dart';
 import 'fadeInAnimation.dart';
 
@@ -76,13 +77,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                       children: [
                         FadeInAnimation(
                           delay: 1.6,
-                          child: const Text(
+                          child: Text(
                             "البريد الالكتروني",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Common().Login,
                           ),
                         ),
                         const SizedBox(height: 10),
@@ -98,13 +95,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         const SizedBox(height: 15),
                         FadeInAnimation(
                           delay: 2.2,
-                          child: const Text(
+                          child: Text(
                             "كلمه المرور",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style:  Common().Login,
                           ),
                         ),
                         const SizedBox(height: 10),

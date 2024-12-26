@@ -12,14 +12,14 @@ class Dhikr extends StatefulWidget {
 class _DhikrState extends State<Dhikr> {
   int _counter = 0;
 
-  // زيادة العداد
+
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
 
-  // إعادة تعيين العداد
+
   void _resetCounter() {
     setState(() {
       _counter = 0;
@@ -31,8 +31,8 @@ class _DhikrState extends State<Dhikr> {
     return Scaffold(
       appBar: AppBar(
        title: Text("ذكر",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: Color(0xFFdd2c00).withOpacity(0.9),),), // عنوان شريط التطبيق
-        backgroundColor: Color(0xFFFFFFFF), // لون خلفية شريط التطبيق
-        centerTitle: true, // لوضع العنوان في المنتصف
+        backgroundColor: Color(0xFFFFFFFF),
+        centerTitle: true,
         iconTheme: IconThemeData(
           size: 30,
           color: Color(0xFFdd2c00),
@@ -63,7 +63,7 @@ class _DhikrState extends State<Dhikr> {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30,
-                  color:  Color(0xFFdd2c00), // لون النص للزيادة في التباين
+                  color:  Color(0xFFdd2c00),
                 ),
               ),
             ),
@@ -74,7 +74,7 @@ class _DhikrState extends State<Dhikr> {
               width: 200,
               height: 180,
               decoration: BoxDecoration(
-                color: Color(0xFF4e342e), // لون أغمق ليتناسب مع الخلفية
+                color: Color(0xFF4e342e),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(35),
                   bottomRight: Radius.circular(35),
@@ -105,7 +105,7 @@ class _DhikrState extends State<Dhikr> {
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2,
-                        color: Colors.black, // لون النص داخل العداد
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -121,7 +121,7 @@ class _DhikrState extends State<Dhikr> {
                 width: 170,
                 height: 130,
                 decoration: BoxDecoration(
-                  color: Color(0xFF4e342e), // لون أغمق
+                  color: Color(0xFF4e342e),
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(50),
                       bottomLeft: Radius.circular(50)),
@@ -142,7 +142,7 @@ class _DhikrState extends State<Dhikr> {
                       style: ElevatedButton.styleFrom(
                         shape: CircleBorder(),
                         minimumSize: const Size(80, 80), // Adjusted size
-                        backgroundColor: Colors.white, // لون خلفية الزر
+                        backgroundColor: Colors.white,
                       ),
                       child: Container(
 
@@ -167,8 +167,8 @@ class _DhikrState extends State<Dhikr> {
                           style: ElevatedButton.styleFrom(
                             shape: CircleBorder(),
                             minimumSize: const Size(
-                                30, 30), // Adjusted size to avoid constraints issue
-                            backgroundColor: Colors.white, // لون خلفية الزر
+                                30, 30),
+                            backgroundColor: Colors.white,
                           ),
                           child: Container(
                             child: Text(

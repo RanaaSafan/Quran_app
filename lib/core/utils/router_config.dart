@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_app/features/Home/presentation/views/widgets/bottom_navigation_home.dart';
 import 'package:quran_app/features/splash/presentation/views/screens/splash_screen.dart';
+import '../../features/Hadith/presentation/views/screens/hadith_screen.dart';
 import '../../features/Home/presentation/views/screens/home_screen.dart';
+import '../../features/Home/presentation/views/widgets/date_calender.dart';
+import '../../features/Home/presentation/views/widgets/list_container_prayer.dart';
 import '../../features/Home/presentation/views/widgets/list_tasbeeh_container_dhikr.dart';
 import '../../features/Home/presentation/views/widgets/tasbeeh_conatiner_dhikr.dart';
 import '../../features/authentication/presentation/views/screens/forget_password_page.dart';
@@ -12,6 +15,7 @@ import '../../features/authentication/presentation/views/screens/new_password_pa
 import '../../features/authentication/presentation/views/screens/otp_vertification_page.dart';
 import '../../features/authentication/presentation/views/screens/password_change_page.dart';
 import '../../features/authentication/presentation/views/screens/signUp_page.dart';
+import '../../features/quran/presentation/views/quran_screen.dart';
 import '../../features/splash/presentation/views/screens/onboarding_screen.dart';
 import 'app_router.dart';
 
@@ -50,19 +54,13 @@ final router = GoRouter(
     },
   ),
   GoRoute(
-    path: Routers.BottomNavigationHome.path,
-    name: Routers.BottomNavigationHome.name,
+    path: Routers.MainScreen.path,
+    name: Routers.MainScreen.name,
     pageBuilder: (context, state) {
       return const MaterialPage(child: BottomNavigationHome());
     },
   ),
-  GoRoute(
-    path: Routers.HomeScreen.path,
-    name: Routers.HomeScreen.name,
-    pageBuilder: (context, state) {
-      return const MaterialPage(child: HomeScreen());
-    },
-  ),
+
   GoRoute(
     path: Routers.signuppage.path,
     name: Routers.signuppage.name,
@@ -113,13 +111,36 @@ final router = GoRouter(
       return MaterialPage(child: ListTasbeehContainerDhikr());
     },
   ),
-  // GoRoute(
-  //   path: Routers.ContainerCounterTasbeeh.path,
-  //   name: Routers.ContainerCounterTasbeeh.name,
-  //   pageBuilder: (context, state) {
-  //     return const MaterialPage(child: ContainerCounterTasbeeh());
-  //   },
-  // ),
+  GoRoute(
+    path: Routers.DateCalender.path,
+    name: Routers.DateCalender.name,
+    pageBuilder: (context, state) {
+      return MaterialPage(child: DateCalender());
+    },
+  ),
+
+      GoRoute(
+        path: Routers.ListContainerPrayer.path,
+        name: Routers.ListContainerPrayer.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: ListContainerPrayer());
+        },
+      ),
+
+      GoRoute(
+        path: Routers.HadithScreen.path,
+        name: Routers.HadithScreen.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: HadithScreen());
+        },
+      ),
+      GoRoute(
+        path: Routers.QuranScreen.path,
+        name: Routers.QuranScreen.name,
+        pageBuilder: (context, state) {
+          return const MaterialPage(child: QuranScreen());
+        },
+      ),
 
 
-]);
+    ]);

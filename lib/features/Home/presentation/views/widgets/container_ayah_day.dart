@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/core/utils/common.dart';
 
 class ContainerAyahDay extends StatelessWidget {
   const ContainerAyahDay({super.key});
@@ -53,12 +54,7 @@ class ContainerAyahDay extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
                 "وَٱسۡتَعِینُوا۟ بِٱلصَّبۡرِ وَٱلصَّلَوٰةِۚ وَإِنَّهَا لَكَبِیرَةٌ إِلَّا عَلَى ٱلۡخَـٰشِعِینَ",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600, // Slightly lighter weight for a modern look
-                  height: 1.5, // Adjust line height for better readability
-                ),
+                style: Common().ContainerAyahAndHadith,
                 textAlign: TextAlign.center,
               ),
             ),

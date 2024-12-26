@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/common.dart';
+
 class ContainerHadithDay extends StatelessWidget {
   const ContainerHadithDay({super.key});
 
@@ -64,12 +66,7 @@ class ContainerHadithDay extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
                 "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ،",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.5, // Adjusting line height for better readability
-                ),
+                style: Common().ContainerAyahAndHadith,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -78,23 +75,14 @@ class ContainerHadithDay extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
                 "فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوِ امْرَأَةٍ يَنْكِحُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ.",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  height: 1.5,
-                ),
+                style: Common().ContainerAyahAndHadith,
                 textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 12),
             Text(
               "(رواه البخاري ومسلم)",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontStyle: FontStyle.italic,
-              ),
+              style: Common().ContainerAyahAndHadith,
             ),
           ],
         ),

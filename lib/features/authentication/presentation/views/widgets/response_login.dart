@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/features/Home/presentation/views/screens/main_screen.dart';
 import 'package:quran_app/features/authentication/presentation/views/widgets/tab_bar_sign_login.dart';
 
 import '../../../../Home/presentation/views/widgets/bottom_navigation_home.dart';
@@ -23,7 +24,7 @@ class _ResponseLoginState extends State<ResponseLogin> {
     await Future.delayed(Duration(seconds: 5), () {});
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => BottomNavigationHome()),
+      MaterialPageRoute(builder: (context) => MainScreen()),
     );
   }
 
