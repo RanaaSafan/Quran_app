@@ -42,17 +42,20 @@ class _TabBarSignLoginState extends State<TabBarSignLogin> with SingleTickerProv
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  const Center(
-                    child: ShaderMaskText(
-                      text: 'أولي العزم',
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      gradient: LinearGradient(
-                        colors: [ Color(0xFF7A4C26),Color(0xFFE6A366)],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Center(
+                      child: ShaderMaskText(
+                        text: 'مشكاة الرشد',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        gradient: LinearGradient(
+                          colors: [ Color(0xFF7A4C26),Color(0xFFE6A366)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
                       ),
                     ),
                   ),
@@ -61,7 +64,7 @@ class _TabBarSignLoginState extends State<TabBarSignLogin> with SingleTickerProv
                     height: 35,
                   ),
                   const Text(
-                    'قم بتسجيل الدخول أو إنشاء حساب جديد لحفظ تقدمك',
+                    'قم بتسجيل الدخول أو إنشاء حساب جديد ',
                     style: TextStyle(
                       color: Color(0xFF777777),
                       fontSize: 15,

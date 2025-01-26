@@ -51,21 +51,31 @@ class _DhikrState extends State<Dhikr> {
       ),
       backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(height: 50),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(16.0),
             child: Center(
               child: Text(
                 widget.data,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  color:  Color(0xFFdd2c00),
+                  fontSize: 24,
+                  color: Color(0xFFdd2c00),
+                  height: 1.5,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5.0,
+                      color: Colors.white30,
+                      offset: Offset(2.0, 2.0),
+                    ),
+                  ],
                 ),
+                textDirection: TextDirection.rtl,
               ),
+
             ),
           ),
           SizedBox(height: 40),

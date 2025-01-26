@@ -14,28 +14,28 @@ class TasbeehConatinerDhikr extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Dhikr(data: data), // Pass the data to the new screen
+              builder: (context) => Dhikr(data: data),
             ),
           );
         },
-        child: Material( // Wrap the Container in Material
-          color: Colors.transparent, // Keep the material transparent
+        child: Material(
+          color: Colors.transparent,
           child: Container(
             width: double.infinity,
-            height: 120,
+            height: 110,
             decoration: BoxDecoration(
-              gradient: LinearGradient( // تدرج لوني لتحسين المظهر
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xFFd84315).withOpacity(0.8), // اللون الأساسي
-                  Color(0xFFd84315).withOpacity(0.4), // اللون الفاتح في الأسفل
+                  Color(0xFFd84315).withOpacity(0.8),
+                  Color(0xFFd84315).withOpacity(0.4),
                 ],
               ),
               borderRadius: BorderRadius.circular(25),
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                  color: Colors.black12, // ظل أكثر نعومة
+                  color: Colors.black12,
                   spreadRadius: 1,
                   blurRadius: 8,
                   offset: Offset(0, 4),
@@ -44,21 +44,27 @@ class TasbeehConatinerDhikr extends StatelessWidget {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center, // وضع النص في المنتصف
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  data,
-                  style: TextStyle(
-                    fontSize: 24, // حجم خط أصغر قليلاً
-                    fontWeight: FontWeight.bold, // خط عريض لجذب الانتباه
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 5.0,
-                        color: Colors.black45,
-                        offset: Offset(2.0, 2.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Text(
+                      data,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            blurRadius: 5.0,
+                            color: Colors.black45,
+                            offset: Offset(2.0, 2.0),
+                          ),
+                        ],
                       ),
-                    ], // إضافة ظل للنص لجعله أكثر وضوحاً
+                      textDirection: TextDirection.rtl,
+                    ),
                   ),
                 ),
               ],

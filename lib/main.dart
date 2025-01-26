@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
 
       ],
       child:  MaterialApp.router(
+        color: Colors.white,
           routerConfig: router, // هذا هو المكان الذي ستقوم فيه بتحديد الراوتر
           title: 'Quran App',
           theme: ThemeData(

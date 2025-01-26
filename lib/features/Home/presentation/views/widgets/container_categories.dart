@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quran_app/features/Hadith/presentation/views/screens/hadith_screen.dart';
-import 'package:quran_app/features/Home/presentation/views/widgets/date_calender.dart';
-import 'package:quran_app/features/quran/presentation/views/quran_screen.dart';
-
 import '../../../../../core/utils/app_router.dart';
-import 'list_container_prayer.dart';
-import 'list_tasbeeh_container_dhikr.dart';
 
 class ContainerCategories extends StatelessWidget {
   final Icon namelogo;
@@ -35,7 +29,7 @@ class ContainerCategories extends StatelessWidget {
               GoRouter.of(context).push(Routers.QuranScreen.name);
               break;
             case "التسبيح":
-              GoRouter.of(context).push(Routers.ListTasbeehContainerDhikr.name);
+              GoRouter.of(context).push(Routers.ListTasbeehContainerCategories.name);
               break;
 
           }

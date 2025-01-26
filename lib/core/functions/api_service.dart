@@ -67,6 +67,19 @@ class ApiService {
     }
   }
 
+  Future<Map<String, dynamic>> getAzikar() async {
+    try {
+      Response response = await _dio.get(
+          'https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/azkar.json'
+      );
+      return response.data;
+    } on DioException catch (e) {
+      String errorMessage = _extractErrorMessage(e);
+      throw Exception(errorMessage);
+    }
+  }
+
+
   /// Extracts a user-friendly error message from the DioException.
   String _extractErrorMessage(DioException e) {
     if (e.response?.data is Map<String, dynamic>) {

@@ -11,7 +11,7 @@ class ContainerAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-surfaceTintColor:  Color(0xFFFFFFFF),
+      surfaceTintColor:  Color(0xFFFFFFFF),
       expandedHeight: 170.0, // الارتفاع الكلي عند تمدد الـ SliverAppBar
       pinned: true, // لجعل الـ SliverAppBar يبقى مرئيًا في الأعلى عند التمرير
       backgroundColor: Color(0xFFFFFFFF), // خلفية اللون

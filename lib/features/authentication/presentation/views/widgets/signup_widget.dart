@@ -89,7 +89,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -160,6 +160,7 @@ class _SignupWidegtState extends State<SignupWidegt> {
                       children:[
                         Expanded(
                           child: RichText(
+
                           text: TextSpan(
                             text: '', // لا تحتاج لنص هنا لأننا سنستخدم children لإضافة الكلمات
                             children: [
@@ -178,9 +179,11 @@ class _SignupWidegtState extends State<SignupWidegt> {
                               TextSpan(
                                 text: 'سياسة الخصوصية ',
                                 style: TextStyle(color: Color(0xFFA85000), fontSize: 15),
+
                               ),
                             ],
                           ),
+                            textDirection: TextDirection.rtl,
                                                     ),
                         ),
 

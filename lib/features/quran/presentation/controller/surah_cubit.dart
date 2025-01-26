@@ -1,12 +1,6 @@
-
-
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran_app/core/functions/api_service.dart';
 import 'package:quran_app/features/quran/data/repo/Repo_surah.dart';
 import 'package:quran_app/features/quran/presentation/controller/surah_state.dart';
-
-import '../../data/repo/Repo_surah_impl.dart';
 
 class SurahCubit extends Cubit<SurahState> {
   final RepoSurah repoSurah;
